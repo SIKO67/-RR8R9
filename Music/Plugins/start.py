@@ -60,8 +60,7 @@ pstart_markup = InlineKeyboardMarkup(
             InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ​", url=f"https://t.me/{GROUP}"),
             InlineKeyboardButton("ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{CHANNEL}"),
         ],
-       
-    [
+
 )
 welcome_captcha_group = 2
 
