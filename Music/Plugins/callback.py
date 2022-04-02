@@ -632,35 +632,35 @@ Group Playlist Playing."""
                                 flex[str(bytesx)] += 1
                                 try:
                                     if eta > 2:
-                                        mystic.edit(f"Downloading {title[:50]}\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec")
+                                        mystic.edit(f"تحميل {title[:50]}\n\n**حجم الملف:** {size}\n**تحميل:** {percentage}\n**سرعة:** {speed}\n**و:** {eta} ثانية")
                                 except Exception as e:
                                     pass
                             if per > 250:    
                                 if flex[str(bytesx)] == 2:
                                     flex[str(bytesx)] += 1
                                     if eta > 2:     
-                                        mystic.edit(f"Downloading {title[:50]}..\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec")
-                                    print(f"[{videoid}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds")
+                                        mystic.edit(f"تحميل {title[:50]}..\n\n**حجم الملف:** {size}\n**تحميل:** {percentage}\n**سرعة:** {speed}\n**و:** {eta} ثانية")
+                                    print(f"[{videoid}] تحميل {percentage} بسرعة {speed} | و: {eta} seconds")
                             if per > 500:    
                                 if flex[str(bytesx)] == 3:
                                     flex[str(bytesx)] += 1
                                     if eta > 2:     
-                                        mystic.edit(f"Downloading {title[:50]}...\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec")
-                                    print(f"[{videoid}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds")
+                                        mystic.edit(f"تحميل {title[:50]}...\n\n**حجم الملف:** {size}\n**تحميل:** {percentage}\n**سرعة:** {speed}\n**و:** {eta} ثانية")
+                                    print(f"[{videoid}] تحميل {percentage} بسرعة {speed} | و: {eta} seconds")
                             if per > 800:    
                                 if flex[str(bytesx)] == 4:
                                     flex[str(bytesx)] += 1
                                     if eta > 2:    
-                                        mystic.edit(f"Downloading {title[:50]}....\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec")
-                                    print(f"[{videoid}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds")
+                                        mystic.edit(f"تحميل {title[:50]}....\n\n**حجم الملف:** {size}\n**تحميل:** {percentage}\n**سرعة:** {speed}\n**و:** {eta} ثانية")
+                                    print(f"[{videoid}] تحميل {percentage} بسرعة {speed} | و: {eta} seconds")
                         if d['status'] == 'finished': 
                             try:
                                 taken = d['_elapsed_str']
                             except Exception as e:
                                 taken = "00:00"
                             size = d['_total_bytes_str']
-                            mystic.edit(f"**📥 Downloaded {title[:50]}.....**\n\n**📚 FileSize:** {size}\n**⚡ Time Taken:** {taken} sec\n\n**📑 Converting Flicks File**")
-                            print(f"[{videoid}] Downloaded| Elapsed: {taken} seconds")  
+                            mystic.edit(f"**📥 تحميل {title[:50]}.....**\n\n**📚 حجم الملف:** {size}\n**⚡ الوقت المستغرق:** {taken} sec\n\n**📑 تحويل ملف النقرات**")
+                            print(f"[{videoid}] تحميل| انقضى: {taken} seconds")  
                     loop = asyncio.get_event_loop()
                     xx = await loop.run_in_executor(None, download, url, my_hook)
                     file = await convert(xx)
@@ -683,7 +683,7 @@ Group Playlist Playing."""
                     m = await CallbackQuery.message.reply_photo(
                     photo=thumb,
                     reply_markup=InlineKeyboardMarkup(buttons),    
-                    caption=(f"🎥<b>__Playing:__ </b>[{title[:25]}]({url}) \n⏳<b>__Duration:__</b> {duration} \n⚡<b>__Info:__</b> [Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n👤**__Requested by:__** {checking}")
+                    caption=(f"🎥<b>__اللعب:__ </b>[{title[:25]}]({url}) \n⏳<b>__المدة:__</b> {duration} \n⚡<b>__معلومات:__</b> [احصل على معلومات اضافية](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n👤**__Requested by:__** {checking}")
                 )   
                     os.remove(thumb)
                     await CallbackQuery.message.delete()
@@ -706,7 +706,7 @@ Group Playlist Playing."""
                     a1,
                 ],
                 [
-                    InlineKeyboardButton(text="ᴄʟᴏsᴇ​", callback_data=f'close2')
+                    InlineKeyboardButton(text="مسح​", callback_data=f'close2')
                 ]    
             ]
         )
@@ -858,7 +858,7 @@ async def P_list(_,CallbackQuery):
                 ],
                 [
                     a3,
-                    InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data=f'close2')
+                    InlineKeyboardButton(text="مسح", callback_data=f'close2')
                 ]    
             ]
         )
@@ -936,7 +936,7 @@ async def G_list(_,CallbackQuery):
 async def cbgroupdel(_,CallbackQuery):  
     a = await app.get_chat_member(CallbackQuery.message.chat.id , CallbackQuery.from_user.id)
     if not a.can_manage_voice_chats:
-        return await CallbackQuery.answer("You don't have the required permission to perform this action.\nPermission: MANAGE VOICE CHATS", show_alert=True)
+        return await CallbackQuery.answer("ماعندك هاي الصلاحية حتى تكدر تطفيها.\الصلاحية: المكالمات", show_alert=True)
     await CallbackQuery.message.delete() 
     await CallbackQuery.answer()
     _playlist = await get_note_names(CallbackQuery.message.chat.id)                                    
