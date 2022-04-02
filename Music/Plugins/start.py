@@ -50,7 +50,7 @@ def start_pannel():
         ],
     ]
     return (
-        "🎛 **{BOT_NAME} Merupakan salah satu dari bot telegram yang bisa memutar musik di grup**",
+        "🧑‍💻 **{BOT_NAME} اެطݪق بَۅت مَمكَن تشِۅٛفة بَاެݪتݪيجَࢪاެمَ ):**",
         buttons,
     )
 
@@ -69,7 +69,7 @@ pstart_markup = InlineKeyboardMarkup(
             InlineKeyboardButton("🧑‍💻 اެݪمَطَۅٛࢪ", url="https://telegra.ph/ҡʏʏ-ᴍᴇᴍ-ᴇx-01-21-2"),
         ],
         [
-            InlineKeyboardButton("❤️‍🔥طࢪيقة اެݪتشغيݪ", url="https://github.com/muhammadrizky16/KyyMusic"),
+            InlineKeyboardButton("طࢪيقة اެݪتشغيݪ", url="https://github.com/muhammadrizky16/KyyMusic"),
         ],
     ]
 )
