@@ -39,14 +39,14 @@ from pyrogram.types import (
 def start_pannel():
     buttons = [
         [
-            InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ​", url=f"https://t.me/{GROUP}"),
-            InlineKeyboardButton(text="ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{CHANNEL}"),
+            InlineKeyboardButton(text="S᥆ᥙrᥴᥱ​", url=f"https://t.me/{GROUP}"),
+            InlineKeyboardButton(text="قناެة اެلمَطۅࢪ", url=f"https://t.me/{CHANNEL}"),
         ],
         [
-            InlineKeyboardButton("📚 ᴄᴏᴍᴍᴀɴᴅ​ 📚", url="https://telegra.ph/ҡʏʏ-ᴍᴇᴍ-ᴇx-01-21-2"),
+            InlineKeyboardButton("ძᥱ᥎ᥱᥣ᥆ρᥱr", url="https://telegra.ph/ҡʏʏ-ᴍᴇᴍ-ᴇx-01-21-2"),
         ],
         [
-            InlineKeyboardButton("🌐 sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ 🌐", url="https://github.com/muhammadrizky16/KyyMusic"),
+            InlineKeyboardButton("اެلمَطۅࢪ", url="https://github.com/muhammadrizky16/KyyMusic"),
         ],
     ]
     return (
@@ -133,7 +133,7 @@ async def play(_, message: Message):
         await app.send_message(
             message.chat.id,
             text=f"""
-**🧑‍💻 هَݪاެ حَبَ {rpk}!
+**❤️‍🔥 هَݪاެ حَبَ {rpk}!
 
 ❤️‍🔥 اެطَݪق بَۅت مَمكَن تَشِۅفَة بَاެݪتݪيجَراެم ):
 
@@ -183,7 +183,7 @@ async def play(_, message: Message):
             )
         if str(finxx) == "sud":
             sudoers = await get_sudoers()
-            text = "**📝 DAFTAR PENGGUNA SUDO**\n\n"
+            text = "**🧑‍💻 قِائمة اެݪمطۅࢪيَن .**\n\n"
             for count, user_id in enumerate(sudoers, 1):
                 try:
                     user = await app.get_users(user_id)
@@ -192,12 +192,12 @@ async def play(_, message: Message):
                     continue
                 text += f"- {user}\n"
             if not text:
-                await message.reply_text("Tidak Ada Pengguna Sudo")
+                await message.reply_text("لايوجد مطورين عزيزي🧑‍💻")
             else:
                 await message.reply_text(text)
 
 
-@app.on_message(filters.command("settings") & filters.group)
+@app.on_message(filters.command("الاعدادات") & filters.group)
 async def settings(_, message: Message):
     c_id = message.chat.id
     _check = await get_assistant(c_id, "assistant")
@@ -212,21 +212,21 @@ async def settings(_, message: Message):
     text, buttons = setting_markup()
     await asyncio.gather(
         message.delete(),
-        message.reply_text(f"{text}\n\n**Group:** {message.chat.title}\n**Group ID:** {message.chat.id}\n**Volume Level:** {volume}%", reply_markup=InlineKeyboardMarkup(buttons)),
+        message.reply_text(f"{text}\n\n**الكروب:** {message.chat.title}\n**ايدي الكروب:** {message.chat.id}\n**مستوى الصوت:** {volume}%", reply_markup=InlineKeyboardMarkup(buttons)),
     )
 
 @app.on_callback_query(filters.regex("okaybhai"))
 async def okaybhai(_, CallbackQuery):
-    await CallbackQuery.answer("Going Back ...")
+    await CallbackQuery.answer("العودة ...")
     out = start_pannel()
     await CallbackQuery.edit_message_text(
-        text=f"Terimakasih telah menambahkan saya di {CallbackQuery.message.chat.title}.\n{BOT_NAME} Telah online.\n\nJika butuh bantuan atau terjadi masalah dengan Bot silahkan bergabung di group atau channel kami.",
+        text=f"شكرا شكرا لإضافتي {CallbackQuery.message.chat.title}.\n{BOT_NAME} متصل بالفعل.\n\nاذا تريد مساعدة راسل المطور.",
         reply_markup=InlineKeyboardMarkup(out[1]),
     )
 
 @app.on_callback_query(filters.regex("settingm"))
 async def settingm(_, CallbackQuery):
-    await CallbackQuery.answer("Bot Settings ...")
+    await CallbackQuery.answer("اعدادات البوت ...")
     text, buttons = setting_markup()
     c_title = CallbackQuery.message.chat.title
     c_id = CallbackQuery.message.chat.id
