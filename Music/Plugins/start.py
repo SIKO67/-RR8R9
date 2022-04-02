@@ -65,12 +65,7 @@ pstart_markup = InlineKeyboardMarkup(
             InlineKeyboardButton(text="ძᥱ᥎ᥱᥣ᥆ρᥱr​", url=f"https://t.me/{GROUP}"),
             InlineKeyboardButton("قناެة اެلمَطۅࢪ", url=f"https://t.me/{CHANNEL}"),
         ],
-        [
-            InlineKeyboardButton("🧑‍💻 اެݪمَطَۅٛࢪ", url="https://telegra.ph/ҡʏʏ-ᴍᴇᴍ-ᴇx-01-21-2"),
-        ],
-        [
-            InlineKeyboardButton("طࢪيقة اެݪتشغيݪ", url="https://github.com/muhammadrizky16/KyyMusic"),
-        ],
+       
     ]
 )
 welcome_captcha_group = 2
