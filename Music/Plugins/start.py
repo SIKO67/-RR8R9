@@ -95,9 +95,9 @@ async def welcome(_, message: Message):
                 out = start_pannel()
                 await message.reply_text(
                     f"""
-👋 ** Halo senang rasanya bisa bergabung di grup ini**
+🧑‍💻 ** مَاެطۅݪ ضِفتني ، ݪتَنسىِ تَࢪفعَني حَبي**
 
-💡 **Jangan lupa untuk menjadikan saya sebagai admin di grup ini**
+❤️‍🔥 **بَعد ماެࢪفعَتنِي ، تَستَطيعَ اެسِتخداެمي عَن طَࢪيَق اެݪاࢪ࣪اެࢪ اެدَنِا**
 """,
                     reply_markup=InlineKeyboardMarkup(out[1]),
                     disable_web_page_preview=True
