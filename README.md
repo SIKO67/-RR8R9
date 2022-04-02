@@ -1,34 +1,6 @@
-<h1 align= center><b>SKYZO MUSIC BOT</b></h1>
-<h3 align = center> Telegram Music Bot And Stream Feature New Version </h3>
-
-<p align="center"><img src="https://telegra.ph/file/3b041f0e23708b4953667.jpg" alt="Coder GIF" width="500" alt="ridho17-ind Github" width="1000px" /></p>
-
-
-
-<h3 align="center">
-    Ready Use Metod
-</h3>
-
-<p align="center">
-    A Support Group And Ready Running This Bot Music Telegram On Heroku!<br>
-    <a href="https://t.me/FlicksMusicBot"> FlicksMusicBot </a> |
-    <a href="https://t.me/FlicksRobotSupport"> FlicksSupport </a>
-</p>
 
 <h2 align="center">
-   Requirements
-</h2>
-
-<p align="center">
-    <a href="https://www.python.org/downloads/release/python-390/"> Python3.9 </a> |
-    <a href="https://docs.pyrogram.org/intro/setup#api-keys"> Telegram API Key </a> |
-    <a href="https://t.me/botfather"> Telegram Bot Token </a> |
-    <a href="https://telegra.ph/How-To-get-Mongodb-URI-04-06"> MongoDB URI </a> |
-    <a href="https://telegram.dog/XTZ_HerokuBot?start=cmlkaG8xNy1pbmQvU2t5em9NdXNpY0JvdCBtYWlu"> Tutorial Deploy </a>
-</p>
-
-<h2 align="center">
-   Stay Up-To-Date
+   مطور سورس فريدوم
 </h2>
 
 <p align="center"><img src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" alt="Coder GIF" width="500" alt="ridho17-ind Github" width="1000px" /></p>
