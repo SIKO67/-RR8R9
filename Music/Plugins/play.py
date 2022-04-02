@@ -183,7 +183,7 @@ async def music_onoff(_, message: Message):
         )
 
 
-@Client.on_message(command(["play", f"play@{BOT_USERNAME}", "p"]))
+@Client.on_message(command(["شغل", f"play@{BOT_USERNAME}", "p"]))
 async def play(_, message: Message):
     chat_id = message.chat.id
     if message.sender_chat:
