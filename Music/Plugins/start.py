@@ -95,9 +95,9 @@ async def welcome(_, message: Message):
                 out = start_pannel()
                 await message.reply_text(
                     f"""
-🧑‍💻 ** مَاެطۅݪ ضِفتني ، ݪتَنسىِ تَࢪفعَني حَبي**
+❤️‍🔥 **مَاެطۅݪ ضِفتني ، ݪتَنسىِ تَࢪفعَني حَبي**
 
-❤️‍🔥 **بَعد ماެࢪفعَتنِي ، تَستَطيعَ اެسِتخداެمي عَن طَࢪيَق اެݪاࢪ࣪اެࢪ اެدَنِا**
+❤️‍🔥 **بَعد ماެࢪفعَتنِي ، تَستَطيعَ اެسِتخداެمي عَن طَࢪيَق اݪاࢪ࣪اެࢪ اެدَنا**
 """,
                     reply_markup=InlineKeyboardMarkup(out[1]),
                     disable_web_page_preview=True
@@ -138,11 +138,11 @@ async def play(_, message: Message):
         await app.send_message(
             message.chat.id,
             text=f"""
-**✨ Selamat Datang {rpk}!
+**🧑‍💻 هَݪاެ حَبَ {rpk}!
 
-💬 [{BOT_NAME}](tg://user?id=2129034376) memungkinkan anda untuk memutar musik pada grup melalui obrolan suara yang baru di Telegram!
+❤️‍🔥 [{BOT_NAME}](tg://user?id=2129034376) اެطَݪق بَۅت مَمكَن تَشِۅفَة بَاެݪتݪيجَراެم ):
 
-💡 Untuk Mengetahui Semua Perintah Bot Dan Bagaimana Cara Kerja Nya Dengan Menekan Tombol » 📚 ᴄᴏᴍᴍᴀɴᴅ​!**
+❤️‍🔥 تَشغيݪ اެغاެني ۅفيَديۅاެت معَ كَاެمݪ تَحكَم ):**
 
 """,
             parse_mode="markdown",
