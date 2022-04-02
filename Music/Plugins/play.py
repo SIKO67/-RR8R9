@@ -179,7 +179,7 @@ async def music_onoff(_, message: Message):
         )
     else:
         await message.reply_text(
-            "**• الاستخدام:**\n\n `شغل او` اون `تشغيل اوف`"
+            "**• الاستخدام:**\n\n .شغل "
         )
 
 
@@ -299,7 +299,7 @@ Saya perlu menjadi admin dengan beberapa izin:
         what = "Audio Searched"
         await LOG_CHAT(message, what)
         mystic = await message.reply_text(
-            f"**🔄 Memproses Audio Yang Diberikan Oleh {username}**"
+            f"**🔄 معالجة الصوت مقدمة من {username}**"
         )
         if audio.file_size > 157286400:
             await mystic.edit_text("Ukuran File Audio Harus Kurang dari 150 mb")
@@ -351,7 +351,7 @@ Saya perlu menjadi admin dengan beberapa izin:
                 videoid = result["id"]
         except Exception as e:
             return await mystic.edit_text(
-                f"Lagu Tidak Ditemukan.\n**Kemungkinan Alasan:** {e}"
+                f"لم يتم العثور على الاغنية.\n**سبب محتمل:** {e}"
             )
         smex = int(time_to_seconds(duration))
         if smex > DURATION_LIMIT:
@@ -405,7 +405,7 @@ Saya perlu menjadi admin dengan beberapa izin:
                                 f"تحميل {title[:50]}..\n\n**حجم الملف:** {size}\n**تحميل:** {percentage}\n**السرعة:** {speed}\n**و:** {eta} ثانية"
                             )
                         print(
-                            f"[{videoid}] تحميل {percentage} بسرعة {speed} | ETA: {eta} seconds"
+                            f"[{videoid}] تحميل {percentage} بسرعة {speed} | و: {eta} ثواني"
                         )
                 if per > 500:
                     if flex[str(bytesx)] == 3:
@@ -520,13 +520,13 @@ Saya perlu menjadi admin dengan beberapa izin:
         await message.reply_photo(
             photo=thumb,
             caption=f"""
-<b>💡 Trek ditambahkan ke antrian</b>
+<b>❤️‍🔥 تم الإضافة الى الانتضار</b>
 
-<b>🏷️ Nama: [{title[:25]}]({link})</b>
-<b>⏱️ Durasi:</b> {duration} \n
-<b>🎧 Atas permintaan: </b>{checking}
+<b>❤️‍🔥 الاسم: [{title[:25]}]({link})</b>
+<b>❤️‍🔥 المدة:</b> {duration} \n
+<b>❤️‍🔥 طلب من: </b>{checking}
 
-<b>#️⃣ Posisi antrian</b> {position}
+<b>#️⃣ قائمة الانتضار</b> {position}
 """,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
@@ -613,7 +613,7 @@ async def startyuplay(_, CallbackQuery):
             f"Gagal mengunduh video ini..\n\n**Alasan**: {e}"
         )
     title = x["title"]
-    mystic = await CallbackQuery.message.reply_text(f"Downloading {title[:50]}")
+    mystic = await CallbackQuery.message.reply_text(f"تحميل {title[:50]}")
     thumbnail = x["thumbnail"]
     (x["id"])
     videoid = x["id"]
