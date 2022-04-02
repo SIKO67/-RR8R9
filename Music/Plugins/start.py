@@ -63,7 +63,7 @@ pstart_markup = InlineKeyboardMarkup(
         ],
         [
             InlineKeyboardButton(text="ძᥱ᥎ᥱᥣ᥆ρᥱr​", url=f"https://t.me/{GROUP}"),
-            InlineKeyboardButton("قناެة اެلمَطۅࢪ", url=f"https://t.me/{CHANNEL}"),
+            InlineKeyboardButton("اެلمَطۅࢪ", url=f"https://t.me/{CHANNEL}"),
         ],
        
     ]
@@ -136,8 +136,6 @@ async def play(_, message: Message):
 **🧑‍💻 هَݪاެ حَبَ {rpk}!
 
 ❤️‍🔥 اެطَݪق بَۅت مَمكَن تَشِۅفَة بَاެݪتݪيجَراެم ):
-
-❤️‍🔥 تَشغيݪ اެغاެني ۅفيَديۅاެت معَ كَاެمݪ تَحكَم ):**
 
 """,
             parse_mode="markdown",
