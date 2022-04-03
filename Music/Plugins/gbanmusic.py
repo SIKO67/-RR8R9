@@ -12,7 +12,7 @@ from pyrogram import filters
 from pyrogram.errors import FloodWait
 
 
-@app.on_message(filters.command("حظر") & filters.user(OWNER))
+@app.on_message(filters.command("حظر عام") & filters.user(OWNER))
 async def ban_globally(_, message):
     if not message.reply_to_message:
         if len(message.command) < 2:
@@ -127,7 +127,7 @@ __**🧑‍💻حظر عام بواسطة احد المطورين**__
             return
 
 
-@app.on_message(filters.command("الغاء") & filters.user(OWNER))
+@app.on_message(filters.command("مسح") & filters.user(OWNER))
 async def unban_globally(_, message):
     if not message.reply_to_message:
         if len(message.command) != 2:
