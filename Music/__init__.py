@@ -67,7 +67,7 @@ CHANNEL = CHANNEL
 GROUP = GROUP
 async def load_sudoers():
     global SUDOERS
-    print("[INFO]: LOADING SUDO USERS")
+    print("[INFO]: تحميل قائمة المطورين")
     sudoersdb = db.sudoers
     sudoers = await sudoersdb.find_one({"sudo": "sudo"})
     sudoers = [] if not sudoers else sudoers["sudoers"]
@@ -82,11 +82,11 @@ async def load_sudoers():
     try:
         repo = Repo()
     except GitCommandError:
-        console.print("┌ [red] Checking Git Updates!")
+        console.print("┌ [red] التحقق من التحديثات!")
         console.print("└ [red]Git Command Error\n")
         return
     except InvalidGitRepositoryError:
-        console.print("┌ [red] Checking Git Updates!")
+        console.print("┌ [red] التحقق من التحديثات!")
         repo = Repo.init()
         if "origin" in repo.remotes:
             origin = repo.remote("origin")
@@ -111,7 +111,7 @@ async def load_sudoers():
         await install_requirements(
             "pip3 install --no-cache-dir -r requirements.txt"
         )
-        console.print("└ [red]Git Client Update Completed\n")
+        console.print("└ [red]اكتمل تحديث عميل Git\n")
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(load_sudoers())
@@ -127,7 +127,7 @@ ASSID = 0
 ASSNAME = ""
 ASSUSERNAME = ""
 ASSMENTION = ""
-print("[INFO]: INITIALIZING BOT CLIENT")
+print("[INFO]: بدء تشغيل عميل BOT")
 app = Client(
     "MusicBot",
     API_ID,
@@ -167,10 +167,10 @@ def init_db():
 init_db()
 
 
-print("[INFO]: STARTING BOT CLIENT")
+print("[INFO]: بدء العميل البوت")
 app.start()
-print("[INFO]: STARTING ASSISTANT CLIENT")
+print("[INFO]: مساعد العميل المبتدئ")
 client.start()
-print("[INFO]: LOADING BOT/ASSISTANT PROFILE INFO")
+print("[INFO]: تحميل معلومات ملف تعريف الروبوت / المساعد")
 all_info(app, client)
-print("[INFO]: LOADED BOT/ASSISTANT PROFILE INFO")
+print("[INFO]: معلومات ملف تعريف الروبوت / المساعد المحملة")
