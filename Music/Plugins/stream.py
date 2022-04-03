@@ -297,7 +297,7 @@ async def vplay(c: Client, message: Message):
                             await message.reply_photo(
                                 photo="cache/IMG_20211230_211039_090.jpg",
                                 caption=f"""
-▷ **يبدأ تشغيل الفيديو**
+▷ **بدء تشغيل الفيديو**
 
 ❤️‍🔥 **الاسم:** [{songname[:999]}]({url})
 ❤️‍🔥 **المدة:** {duration}
