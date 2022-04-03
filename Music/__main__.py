@@ -30,7 +30,7 @@ print(f"[INFO]: بدء المساعد يعمل بواسطة مطور سورس ف
 async def load_start():
     restart_data = await clean_restart_stage()
     if restart_data:
-        print("[INFO]: SENDING RESTART STATUS")
+        print("[INFO]: إرسال حالة إعادة التشغيل")
         try:
             await app.edit_message_text(
                 restart_data["chat_id"],
@@ -53,8 +53,8 @@ async def load_start():
             print("Error came while clearing db")
             pass     
     await startapp()
-    await app.send_message(LOG_GROUP_ID, "Bot Started")
-    await client.send_message(LOG_GROUP_ID, "Assistant Started")
+    await app.send_message(LOG_GROUP_ID, "بواسطة المطور @rr8r9 البوت يعمل بسرعة هائلة")
+    await client.send_message(LOG_GROUP_ID, "بواسطة المطور @rr8r9 المساعد يعمل بشكل طبيعي")
     print("[INFO]: STARTED")
     
    
@@ -65,4 +65,4 @@ run()
 idle()
 loop.close()
 
-print("[LOG] CLOSING BOT")
+print("[LOG] بوت الإغلاق")
