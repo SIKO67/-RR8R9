@@ -48,7 +48,7 @@ XCB = [
 ]
 
 
-@app.on_message(filters.command("get_log") & filters.user(SUDOERS))
+@app.on_message(filters.command("السجل") & filters.user(SUDOERS))
 async def log_(client, message):
     if await is_heroku():
         if HEROKU_API_KEY == "" and HEROKU_APP_NAME == "":
@@ -225,7 +225,7 @@ async def usage_dynos(client, message):
         return await message.reply_text(
             " Please make sure your Heroku API Key, Your App name are configured correctly in the heroku"
         )
-    dyno = await message.reply_text("Checking Heroku Usage. Please Wait")
+    dyno = await message.reply_text("التحقق من استخدام هيروكو.  أرجو الإنتظار")
     account_id = Heroku.account().id
     useragent = (
         "Mozilla/5.0 (Linux; Android 10; SM-G975F) "
@@ -272,7 +272,7 @@ Total Left: `{hours}`**h**  `{minutes}`**m**  [`{percentage}`**%**]"""
     return await dyno.edit(text)
 
 
-@app.on_message(filters.command("update") & filters.user(SUDOERS))
+@app.on_message(filters.command("تحديث") & filters.user(SUDOERS))
 async def update_(client, message):
     if await is_heroku():
         if HEROKU_API_KEY == "" and HEROKU_APP_NAME == "":
@@ -283,7 +283,7 @@ async def update_(client, message):
             return await message.reply_text(
                 "<b>HEROKU APP DETECTED!</b>\n\n<b>Make sure to add both</b> `HEROKU_API_KEY` **and** `HEROKU_APP_NAME` <b>vars correctly in order to be able to update remotely!</b>"
             )
-    response = await message.reply_text("Checking for available updates...")
+    response = await message.reply_text("بواسطة المطور يتم البحث عن تحديثات قام بتنزيلها سورس فريدوم...")
     try:
         repo = Repo()
     except GitCommandError:
@@ -307,14 +307,14 @@ async def update_(client, message):
         ],
     )
     for info in repo.iter_commits(f"HEAD..origin/{UPSTREAM_BRANCH}"):
-        updates += f"<b>➣ #{info.count()}: [{info.summary}]({REPO_}/commit/{info}) by -> {info.author}</b>\n\t\t\t\t<b>➥ Commited on:</b> {ordinal(int(datetime.fromtimestamp(info.committed_date).strftime('%d')))} {datetime.fromtimestamp(info.committed_date).strftime('%b')}, {datetime.fromtimestamp(info.committed_date).strftime('%Y')}\n\n"
-    _update_response_ = "<b>A new update is available for the Bot!</b>\n\n➣ Pushing Updates Now</code>\n\n**<u>Updates:</u>**\n\n"
+        updates += f"<b>➣ #{info.count()}: [{info.summary}]({REPO_}/commit/{info}) by -> {info.author}</b>\n\t\t\t\t<b>➥ ارتكبت على:</b> {ordinal(int(datetime.fromtimestamp(info.committed_date).strftime('%d')))} {datetime.fromtimestamp(info.committed_date).strftime('%b')}, {datetime.fromtimestamp(info.committed_date).strftime('%Y')}\n\n"
+    _update_response_ = "<b>يتوفر تحديث جديد للبوت!</b>\n\n➣ بواسطه المطور يتم التحديث الان</code>\n\n**<u>التحديثات:</u>**\n\n"
     _final_updates_ = _update_response_ + updates
     if len(_final_updates_) > 4096:
         link = await paste_queue(updates)
         url = link + "/index.txt"
         nrs = await response.edit(
-            f"<b>A new update is available for the Bot!</b>\n\n➣ Pushing Updates Now</code>\n\n**<u>Updates:</u>**\n\n[Click Here to checkout Updates]({url})"
+            f"<b>يتوفر تحديث جديد للبوت!</b>\n\n➣ بواسطه المطور يتم التحديث الان</code>\n\n**<u>التحديثات:</u>**\n\n[انقر هنا لمعرفة التحديثات]({url})"
         )
     else:
         nrs = await response.edit(
@@ -324,7 +324,7 @@ async def update_(client, message):
     if await is_heroku():
         try:
             await response.edit(
-                f"{nrs.text}\n\nBot was updated successfully on Heroku! Now, wait for 2 - 3 mins until the bot restarts!"
+                f"{nrs.text}\n\nتم تحديث الروبوت بنجاح على هيروكو!  حاليا انتظر لمدة 2-3 دقائق حتى يتم إعادة تشغيل البوت!"
             )
             os.system(
                 f"{XCB[5]} {XCB[7]} {XCB[9]}{XCB[4]}{XCB[0]*2}{XCB[6]}{XCB[4]}{XCB[8]}{XCB[1]}{XCB[5]}{XCB[2]}{XCB[6]}{XCB[2]}{XCB[3]}{XCB[0]}{XCB[10]}{XCB[2]}{XCB[5]} {XCB[11]}{XCB[4]}{XCB[12]}"
@@ -332,7 +332,7 @@ async def update_(client, message):
             return
         except Exception as err:
             await response.edit(
-                f"{nrs.text}\n\nSomething went wrong while initiating reboot! Please try again later or check logs for more info."
+                f"{nrs.text}\n\nحدث خطأ ما أثناء بدء إعادة التشغيل!  يرجى المحاولة مرة أخرى في وقت لاحق أو التحقق من السجلات لمزيد من المعلومات."
             )
             return await app.send_message(
                 LOG_GROUP_ID,
@@ -340,7 +340,7 @@ async def update_(client, message):
             )
     else:
         await response.edit(
-            f"{nrs.text}\n\nBot was updated successfully! Now, wait for 1 - 2 mins until the bot reboots!"
+            f"{nrs.text}\n\n تم تحديث البوت بنجاح!  حاليا, انتظر لمدة 1-2 دقيقة حتى يتم إعادة تشغيل البوت!"
         )
         os.system("pip3 install -r requirements.txt")
         os.system(f"kill -9 {os.getpid()} && bash start")
