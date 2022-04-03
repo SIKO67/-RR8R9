@@ -73,7 +73,7 @@ async def log_(client, message):
         link = await paste_queue(data)
         url = link + "/index.txt"
         return await message.reply_text(
-            f"Here is the Log of Your App[{HEROKU_APP_NAME}]\n\n[Click Here to checkout Logs]({url})"
+            f"تم سحب السجلات بواسطة المطور[{HEROKU_APP_NAME}]\n\n[انقر هنا لرؤية السجلات]({url})"
         )
     else:
         return await message.reply_text(data)
@@ -298,7 +298,7 @@ async def update_(client, message):
     for checks in repo.iter_commits(f"HEAD..origin/{UPSTREAM_BRANCH}"):
         verification = str(checks.count())
     if verification == "":
-        return await response.edit("Bot is up-to-date!")
+        return await response.edit("بواسطة المطور @rr8r9 البوت محدث إحدث اصدار!")
     updates = ""
     ordinal = lambda format: "%d%s" % (
         format,
