@@ -24,8 +24,8 @@ from Music.MusicUtilities.tgcallsrun.queues import (
 keyboard = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/{GROUP}"),
-            InlineKeyboardButton("ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{CHANNEL}"),
+            InlineKeyboardButton("المطور ", url=f"https://t.me/{GROUP}"),
+            InlineKeyboardButton("القناة ", url=f"https://t.me/{CHANNEL}"),
         ]
     ]
 )
@@ -96,17 +96,17 @@ async def stream_end_handler(_, u: Update):
         if op == 1:
             await app.send_message(
                 chat_id,
-                "**✅ Antrian kosong.\n\n• Assistant meninggalkan obrolan suara**",
+                "**✅ قائمة انتظار فارغة.\n\n• غادر المساعد الدردشة الصوتية**",
             )
         elif op == 2:
             await app.send_message(
                 chat_id,
-                f"**❌ terjadi kesalahan\n\n» Membersihkan antrian dan keluar dari obrolan video.**",
+                f"**❌ هنالك خطأ\n\n» امسح قائمة الانتظار واخرج من دردشة الفيديو.**",
             )
         else:
             await app.send_message(
                 chat_id,
-                f"**▷ Sekarang memutar video\n\n🏷 Nama: [{op[0]}]({op[1]})**",
+                f"**▷ الآن قم بتشغيل الفيديو\n\n🏷 الاسم: [{op[0]}]({op[1]})**",
                 disable_web_page_preview=True,
                 reply_markup=keyboard,
             )
