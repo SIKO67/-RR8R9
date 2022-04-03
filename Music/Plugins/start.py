@@ -157,18 +157,11 @@ async def play(_, message: Message):
                 x = ytdl.extract_info(query, download=False)
             thumbnail = x["thumbnail"]
             searched_text = f"""
-🔍 **Video Track Information**
+🔍 **معلومات عن الفيديو**
 
-❇️**Judul:** {x["title"]}
+❤️‍🔥 **الوقت:** {round(x["duration"] / 60)} Mins
+❤️‍🔥 **المدة:** `{x["view_count"]}`
 
-⏳ **Durasi:** {round(x["duration"] / 60)} Mins
-👀 **Ditonton:** `{x["view_count"]}`
-👍 **Suka:** `{x["like_count"]}`
-👎 **Tidak suka:** `{x["dislike_count"]}`
-⭐️ **Peringkat Rata-rata:** {x["average_rating"]}
-🎥 **Nama channel:** {x["uploader"]}
-📎 **Channel Link:** [Kunjungi Dari Sini]({x["channel_url"]})
-🔗 **Link:** [Link]({x["webpage_url"]})
 """
             link = x["webpage_url"]
             buttons = personal_markup(link)
@@ -261,7 +254,7 @@ async def EVE(_, CallbackQuery):
         )
     else:
         await CallbackQuery.answer(
-            "Commands Mode is Already Set To EVERYONE", show_alert=True
+            "تم بالفعل تعيين وضع الأوامر على الجميع", show_alert=True
         )
 
 @app.on_callback_query(filters.regex("AMS"))
