@@ -104,7 +104,7 @@ Kemungkinan alasannya bisa** :{e}
         return
     if CallbackQuery.from_user.id != int(user_id):
         await CallbackQuery.answer(
-            "Anda tidak diizinkan untuk menutup memu ini", show_alert=True
+            "متكدر تسوي هاي وخر؟", show_alert=True
         )
         return
     await CallbackQuery.message.delete()
@@ -118,7 +118,7 @@ async def pausevc(_, CallbackQuery):
     )
     if not a.can_manage_voice_chats:
         return await CallbackQuery.answer(
-            "Anda tidak memiliki izin yang diperlukan untuk melakukan tindakan ini.\n• ❌ MENGELOLA OBROLAN SUARA",
+            "لازم عندك هاي الصلاحية حتى تكدر تستخدمها.\n• ❤️‍🔥 إدارة المحادثات الصوتية",
             show_alert=True,
         )
     CallbackQuery.from_user.first_name
@@ -142,7 +142,7 @@ async def pausevc(_, CallbackQuery):
         await CallbackQuery.answer(f"ماكو شي مشتغل!", show_alert=True)
 
 
-@Client.on_callback_query(filters.regex("توقيف"))
+@Client.on_callback_query(filters.regex("اوكف"))
 async def resumevc(_, CallbackQuery):
     a = await app.get_chat_member(
         CallbackQuery.message.chat.id, CallbackQuery.from_user.id
@@ -150,9 +150,9 @@ async def resumevc(_, CallbackQuery):
     if not a.can_manage_voice_chats:
         return await CallbackQuery.answer(
             """
-Anda tidak memiliki izin yang diperlukan untuk melakukan tindakan ini.
+لازم عندك هاي الصلاحية حتى تكدر تستخدمها.
 
-• ❌ MENGELOLA OBROLAN SUARA
+• ❤️‍🔥 إدارة المحادثات الصوتية
 """,
             show_alert=True,
         )
@@ -188,9 +188,9 @@ async def skipvc(_, CallbackQuery):
     if not a.can_manage_voice_chats:
         return await CallbackQuery.answer(
             """
-Anda tidak memiliki izin yang diperlukan untuk melakukan tindakan ini
+لازم عندك هاي الصلاحية حتى تكدر تستخدمها
 
-• ❌ MENGELOLA OBROLAN SUARA
+• ❤️‍🔥 إدارة المحادثات الصوتية
 """,
             show_alert=True,
         )
@@ -436,12 +436,12 @@ async def play_playlist(_,CallbackQuery):
             return await CallbackQuery.answer(f"ليس لديك قائمة تشغيل على الخوادم.", show_alert=True)
         else:
             await CallbackQuery.message.delete()
-            logger_text=f"""Starting Playlist
+            logger_text=f"""بدء قائمة التشغيل
 
-Group :- {chat_title}
-By :- {Name}
+الكروب :- {chat_title}
+طلب من :- {Name}
 
-Personal Playlist Playing."""
+تشغيل قائمة التشغيل الشخصية."""
             await ASS_ACC.send_message(LOG_GROUP_ID, f"{logger_text}", disable_web_page_preview=True)
             mystic = await CallbackQuery.message.reply_text(f"بدءا {Name}قائمة التشغيل الشخصية.\n\nطلب من:- {CallbackQuery.from_user.first_name}")   
             checking = f"[{CallbackQuery.from_user.first_name}](tg://user?id={userid})"
