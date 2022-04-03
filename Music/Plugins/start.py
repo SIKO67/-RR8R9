@@ -39,7 +39,7 @@ from pyrogram.types import (
 def start_pannel():
     buttons = [
         [
-            InlineKeyboardButton(text="قناة المطور", url=f"https://t.me/{CHANNEL}"),
+            InlineKeyboardButton(text="• قناة المطور", url=f"https://t.me/{CHANNEL}"),
         ],
 
         [
@@ -87,8 +87,6 @@ async def welcome(_, message: Message):
                 out = start_pannel()
                 await message.reply_text(
                     f"""
-❤️‍🔥 **شكرا لان حتستخدمني ومتعرف اوامري اصلا**
-
 ❤️‍🔥 **ارفعني مشرف كامل صلاحيات وشوف زر • الاوامر **
 """,
                     reply_markup=InlineKeyboardMarkup(out[1]),
