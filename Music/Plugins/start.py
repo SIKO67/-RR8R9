@@ -61,8 +61,10 @@ pstart_markup = InlineKeyboardMarkup(
         [
             InlineKeyboardButton(text="• اެݪاوامࢪ ", url=f"https://telegra.ph/%D9%85%D8%B1%D8%AD%D8%A8%D8%A7--%D8%AA%D8%A7%D8%A8%D8%B9-%D8%A7%D9%84%D8%A3%D8%B3%D9%81%D9%84-04-03"),
             InlineKeyboardButton("• ხy ", url=f"https://t.me/RR3R2"),
-            InlineKeyboardButton("• قناة اݪمطوࢪ", url=f"https://t.me/{CHANNEL}"),
-        ], 
+        ],
+        [
+            InlineKeyboardButton("📚 ᴄᴏᴍᴍᴀɴᴅ ​📚", url="https://telegra.ph/ҡʏʏ-ᴍᴇᴍ-ᴇx-01-21-2"),
+        ],
     ]
 )
 welcome_captcha_group = 2
