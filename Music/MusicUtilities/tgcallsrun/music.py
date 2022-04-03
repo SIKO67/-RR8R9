@@ -79,15 +79,15 @@ async def on_stream_end(client: PyTgCalls, update: Update) -> None:
             f3 = (afk[2])
             finxx = (f"{f1}{f2}{f3}")
             if str(finxx) != "raw":  
-                mystic = await app.send_message(chat_id, "Downloading Next Music From Playlist....")
+                mystic = await app.send_message(chat_id, "تنزيل الموسيقى التالية من قائمة التشغيل....")
                 url = (f"https://www.youtube.com/watch?v={afk}")
                 ctitle = (await app.get_chat(chat_id)).title
                 logger_text=f"""Playing Next From Playlist
 
-Group :- {chat_id}
-Title :- {ctitle}
+مجموعة :- {chat_id}
+لقب :- {ctitle}
 
-Downloading....
+تحميل....
 
 {url}"""
                 okay = await app.send_message(LOG_GROUP_ID, f"{logger_text}", disable_web_page_preview=True)
@@ -115,22 +115,22 @@ Downloading....
                             flex[str(bytesx)] = 1
                         if flex[str(bytesx)] == 1:
                             flex[str(bytesx)] += 1
-                            mystic.edit(f"Downloading {title[:50]}\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec")
+                            mystic.edit(f"تحميل {title[:50]}\n\n**حجم الملف:** {size}\n**تحميل:** {percentage}\n**السرعة:** {speed}\n**و:** {eta} ثانية")
                         if per > 500:    
                             if flex[str(bytesx)] == 2:
                                 flex[str(bytesx)] += 1
-                                mystic.edit(f"Downloading {title[:50]}...\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec")
-                                print(f"[{videoid}] Downloaded {percentage} at a speed of {speed} in {chat_title} | ETA: {eta} seconds")
+                                mystic.edit(f"تحميل {title[:50]}...\n\n**حجم الملف:** {size}\n**تحميل:** {percentage}\n**السرعة:** {speed}\n**و:** {eta} ثانية")
+                                print(f"[{videoid}] تحميل {percentage} بسرعة {speed} في {chat_title} | و: {eta} ثواني")
                         if per > 800:    
                             if flex[str(bytesx)] == 3:
                                 flex[str(bytesx)] += 1
-                                mystic.edit(f"Downloading {title[:50]}....\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec")
-                                print(f"[{videoid}] Downloaded {percentage} at a speed of {speed} in {chat_title} | ETA: {eta} seconds")
+                                mystic.edit(f"تحميل {title[:50]}....\n\n**حجم الملف:** {size}\n**تحميل:** {percentage}\n**السرعة:** {speed}\n**و:** {eta} ثانية")
+                                print(f"[{videoid}] تحميل {percentage} بسرعة {speed} في {chat_title} | و: {eta} ثواني")
                         if per == 1000:    
                             if flex[str(bytesx)] == 4:
                                 flex[str(bytesx)] = 1
-                                mystic.edit(f"Downloading {title[:50]}.....\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec") 
-                                print(f"[{videoid}] Downloaded {percentage} at a speed of {speed} in {chat_title} | ETA: {eta} seconds")
+                                mystic.edit(f"تحميل {title[:50]}.....\n\n**حجم الملف:** {size}\n**تحميل:** {percentage}\n**السرعة:** {speed}\n**و:** {eta} ثانية") 
+                                print(f"[{videoid}] تحميل {percentage} بسرعة {speed} في {chat_title} | و: {eta} ثواني")
                 loop = asyncio.get_event_loop()
                 xx = await loop.run_in_executor(None, download, url, my_hook)
                 file = await convert(xx)
@@ -158,7 +158,7 @@ Downloading....
                 await app.send_photo(chat_id,
                 photo= thumb,
                 reply_markup=InlineKeyboardMarkup(buttons),    
-                caption=(f"🎥<b>__Started Playing:__ </b>[{title[:25]}]({url}) \n⏳<b>__Duration:__</b> {duration} Mins\n💡<b>__Info:__</b> [Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n👤**__Requested by:__** {semx.mention}")
+                caption=(f"🎥<b>__تم التشغيل:__ </b>[{title[:25]}]({url}) \n❤️‍🔥<b>__المدة:__</b> {duration} دقيقة\n❤️‍🔥<b>__معلومات:__</b> [انقر هنا](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n❤️‍🔥**__طلب من:__** {semx.mention}")
             )   
                 os.remove(thumb)
             else:      
@@ -189,9 +189,9 @@ Downloading....
                 photo=f"downloads/{_chat_}final.png",
                 reply_markup=InlineKeyboardMarkup(buttons),
                 caption=f"""
-<b>▶️ Sekarang memutar:</b> {title}
-<b>⌚ Durasi:</b> {duration}
-<b>🎧 Atas permintaan:</b> {username}
+<b>▶️ يتم التشغيل:</b> {title}
+<b>❤️‍🔥 المدة:</b> {duration}
+<b>❤️‍🔥 طلب من:</b> {username}
 """,
                 )
                 return
