@@ -131,7 +131,7 @@ __**حظر عام بواسطة المطورين**__
 async def unban_globally(_, message):
     if not message.reply_to_message:
         if len(message.command) != 2:
-            await message.reply_text("**الاستخدام:**\n/الغاء حظر [المعرف | الايدي]")
+            await message.reply_text("**Penggunaan:**\n/unblock [USERNAME | USER_ID]")
             return
         user = message.text.split(None, 1)[1]
         if "@" in user:
@@ -140,31 +140,31 @@ async def unban_globally(_, message):
         from_user = message.from_user
         sudoers = await get_sudoers()
         if user.id == from_user.id:
-            await message.reply_text("تريد رفع الحظر عن نفسك ، حمار انت؟?")
+            await message.reply_text("Anda ingin membuka blokir diri sendiri?")
         elif user.id == BOT_ID:
-            await message.reply_text("الغي الحظر عن نفسي؟ وات??")
+            await message.reply_text("Haruskah saya membuka blokir sendiri??")
         elif user.id in sudoers:
-            await message.reply_text("لايمكن حظر المطورين.")
+            await message.reply_text("Pengguna Sudo tidak dapat diblokir/diblokir.")
         else:
             is_gbanned = await is_gbanned_user(user.id)
             if not is_gbanned:
-                await message.reply_text("هو بالفعل حر ، ليش تتنمر عليه?")
+                await message.reply_text("Dia sudah bebas, mengapa menggertaknya?")
             else:
                 await remove_gban_user(user.id)
-                await message.reply_text(f"غير محظور يامطوري!")
+                await message.reply_text(f"Ungbanned!")
         return
     from_user_id = message.from_user.id
     user_id = message.reply_to_message.from_user.id
     message.reply_to_message.from_user.mention
     sudoers = await get_sudoers()
     if user_id == from_user_id:
-    await message.reply_text("تريد رفع الحظر عن نفسك .حمار انت?")
+        await message.reply_text("Anda ingin membuka blokir diri sendiri?")
     elif user_id == BOT_ID:
         await message.reply_text(
-            "فتح نفسك؟  لكني لست محظورا."
+            "Haruskah saya membuka blokir sendiri? Tapi saya tidak diblokir."
         )
     elif user_id in sudoers:
-        await message.reply_text("لايمكن للمطورين.")
+        await message.reply_text("Pengguna Sudo tidak dapat diblokir/diblokir.")
     else:
         is_gbanned = await is_gbanned_user(user_id)
         if not is_gbanned:
@@ -196,3 +196,4 @@ async def chat_watcher_func(_, message):
 **Kemungkinan Alasan:** Potensi Spammer dan Penyalahguna.
 """
         )
+
