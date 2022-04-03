@@ -16,11 +16,11 @@ from Music.MusicUtilities.tgcallsrun.video import skip_current_song, skip_item
 
 
 bttn = InlineKeyboardMarkup(
-    [[InlineKeyboardButton("ᴋᴇᴍʙᴀʟɪ", callback_data="cbmenu")]]
+    [[InlineKeyboardButton("ارجاع", callback_data="cbmenu")]]
 )
 
 
-bcl = InlineKeyboardMarkup([[InlineKeyboardButton("ᴛᴜᴛᴜᴘ", callback_data="cls")]])
+bcl = InlineKeyboardMarkup([[InlineKeyboardButton("مسح", callback_data="cls")]])
 
 
 @Client.on_callback_query(filters.regex("cbmenu"))
@@ -48,7 +48,7 @@ async def cbmenu(_, query: CallbackQuery):
                     InlineKeyboardButton("🔇", callback_data="cbmute"),
                     InlineKeyboardButton("🔊", callback_data="cbunmute"),
                 ],
-                [InlineKeyboardButton("ᴛᴜᴛᴜᴘ", callback_data="cls")],
+                [InlineKeyboardButton("مسح", callback_data="cls")],
             ]
         ),
     )
