@@ -54,6 +54,8 @@ async def gstats(_, message):
     resp = (end - start).microseconds / 1000
     smex = f"""
 [•]<u>**احصائيات عامة**</u>
+
+تم برمجة كل هذه العمل بواسطة سيدي @rr8r9
     
 البنك: `⚡{resp} ميلي ثانية`
 {uptime}
