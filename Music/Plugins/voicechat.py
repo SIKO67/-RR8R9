@@ -17,28 +17,28 @@ from pyrogram.types import (InlineKeyboardMarkup, InputMediaPhoto, Message,
 
 loop = asyncio.get_event_loop()
 
-__MODULE__ = "Join/Leave"
-__HELP__ = """
-**Note:**
-Only for Sudo Users
-/joinassistant [Chat Username or Chat ID]
-- Join assistant to a group.
-/leaveassistant [Chat Username or Chat ID]
-- Assistant will leave the particular group.
-/leavebot [Chat Username or Chat ID]
-- Bot will leave the particular chat.
+____ = "اوامر المغادرة والانضمام"
+__مساعدة__ = """
+**ملحوظة:**
+اوامر المطور فقط
+/انضم مع ايدي الكروب]
+- سينضم حساب المساعد للمجموعة.
+/ترك مع ايدي الكروب
+- المساعد سيترك المجموعة المعينة.
+/اترك مع ايدي الكروب
+- لمغادرة البوت من مجموعة معينة.
 """
 
 @app.on_message(filters.command("queue"))
 async def activevc(_, message: Message):
     global get_queue
     if await is_active_chat(message.chat.id):
-        mystic = await message.reply_text("Please Wait... Getting Queue..")
+        mystic = await message.reply_text("الرجاء الانتظار ... جاري الحصول على قائمة الانتظار..")
         dur_left = db_mem[message.chat.id]["left"]
         duration_min = db_mem[message.chat.id]["total"]
         got_queue = get_queue.get(message.chat.id)
         if not got_queue:
-            await mystic.edit(f"Nothing in Queue")
+            await mystic.edit(f"لا شيء في قائمة الانتظار")
         fetched = []
         for get in got_queue:
             fetched.append(get)
@@ -47,22 +47,22 @@ async def activevc(_, message: Message):
         current_playing = fetched[0][0]
         user_name = fetched[0][1]
 
-        msg = "**Queued List**\n\n"
-        msg += "**Currently Playing:**"
+        msg = "**قائمة الانتظار**\n\n"
+        msg += "**يشغل حاليا:**"
         msg += "\n▶️" + current_playing[:30]
-        msg += f"\n   ╚By:- {user_name}"
-        msg += f"\n   ╚Duration:- Remaining `{dur_left}` out of `{duration_min}` Mins."
+        msg += f"\n   ╚طلب من:- {user_name}"
+        msg += f"\n   ╚المدة:- متبقي `{dur_left}` بعيدا عن المكان `{duration_min}` دقيقة."
         fetched.pop(0)
         if fetched:
             msg += "\n\n"
-            msg += "**Up Next In Queue:**"
+            msg += "**التالي في قائمة الانتظار:**"
             for song in fetched:
                 name = song[0][:30]
                 usr = song[1]
                 dur = song[2]
                 msg += f"\n⏸️{name}"
-                msg += f"\n   ╠Duration : {dur}"
-                msg += f"\n   ╚Requested by : {usr}\n"
+                msg += f"\n   ╠المدة : {dur}"
+                msg += f"\n   ╚طلب من : {usr}\n"
         if len(msg) > 4096:
             await mystic.delete()
             filename = "queue.txt"
@@ -70,17 +70,17 @@ async def activevc(_, message: Message):
                 out_file.write(str(msg.strip()))
             await message.reply_document(
                 document=filename,
-                caption=f"**OUTPUT:**\n\n`Queued List`",
+                caption=f"**انتاج:**\n\n`قائمة الانتظار`",
                 quote=False,
             )
             os.remove(filename)
         else:
             await mystic.edit(msg)
     else:
-        await message.reply_text(f"Tidak ada dalam Antrian")
+        await message.reply_text(f"ليس في قائمة الانتظار")
 
 
-@app.on_message(filters.command("activevc") & filters.user(SUDOERS))
+@app.on_message(filters.command("المكالمات") & filters.user(SUDOERS))
 async def activevc(_, message: Message):
     served_chats = []
     try:
@@ -105,7 +105,7 @@ async def activevc(_, message: Message):
             text += f"<b>{j + 1}. {title}</b> [`{x}`]\n"
         j += 1
     if not text:
-        await message.reply_text("Tidak Ada Obrolan Suara Aktif")
+        await message.reply_text("عزيزي المطور لاتوجد مكالمات نشطة🧑‍💻")
     else:
         await message.reply_text(
             f"**Active Voice Chats:-**\n\n{text}",
@@ -113,11 +113,11 @@ async def activevc(_, message: Message):
         )
 
 
-@app.on_message(filters.command("joinassistant") & filters.user(SUDOERS))
+@app.on_message(filters.command("انضم") & filters.user(SUDOERS))
 async def basffy(_, message):
     if len(message.command) != 2:
         await message.reply_text(
-            "**Penggunaan:**\n/joinassistant [Nama Pengguna Obrolan atau ID Obrolan]"
+            "**الاستخدام:**\n/انضم معرف الكروب او ايدي الكروب ، سينضم للدردشة"
         )
         return
     chat = message.text.split(None, 2)[1]
@@ -126,14 +126,14 @@ async def basffy(_, message):
     except Exception as e:
         await message.reply_text(f"Gagal\n**Kemungkinan alasannya bisa**:{e}")
         return
-    await message.reply_text("Bergabung.")
+    await message.reply_text("ينضم.")
 
 
-@app.on_message(filters.command("leavebot") & filters.user(SUDOERS))
+@app.on_message(filters.command("اترك") & filters.user(SUDOERS))
 async def baaaf(_, message):
     if len(message.command) != 2:
         await message.reply_text(
-            "**Penggunaan:**\n/leavebot [Nama Pengguna Obrolan atau ID Obrolan]"
+            "**الاستخدام:**\n/اترك مع ايدي الدردشة لمغادرة البوت فقط"
         )
         return
     chat = message.text.split(None, 2)[1]
@@ -143,14 +143,14 @@ async def baaaf(_, message):
         await message.reply_text(f"Gagal\n**Kemungkinan alasannya bisa**:{e}")
         print(e)
         return
-    await message.reply_text("Bot telah berhasil meninggalkan obrolan")
+    await message.reply_text("غادر الروبوت الدردشة بنجاح🧑‍💻")
 
 
-@app.on_message(filters.command("leaveassistant") & filters.user(SUDOERS))
+@app.on_message(filters.command("ترك") & filters.user(SUDOERS))
 async def baujaf(_, message):
     if len(message.command) != 2:
         await message.reply_text(
-            "**Penggunaan:**\n/leave [Nama Pengguna Obrolan atau ID Obrolan]"
+            "**الاستخدام:**\n/ترك مع ايدي الكروب"
         )
         return
     chat = message.text.split(None, 2)[1]
