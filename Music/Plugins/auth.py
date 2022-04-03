@@ -10,13 +10,13 @@ from Music.MusicUtilities.database.changers import (alpha_to_int, int_to_alpha,
                                       time_to_seconds)
 
 
-@app.on_message(filters.command("auth") & filters.group)
+@app.on_message(filters.command("توثيق") & filters.group)
 @AdminActual
 async def auth(_, message: Message):
     if not message.reply_to_message:
         if len(message.command) != 2:
             await message.reply_text(
-                "Reply to a user's message or give username/user_id."
+                "الرد على رسالة المستخدم أو إعطاء اسم المستخدم."
             )
             return
         user = message.text.split(None, 1)[1]
@@ -33,7 +33,7 @@ async def auth(_, message: Message):
             count += 1
         if int(count) == 20:
             return await message.reply_text(
-                "You can only have 20 Users In Your Groups Authorised Users List (AUL)"
+                "يمكن أن يكون لديك 20 مستخدمًا فقط في قائمة المستخدمين الموثوقين لهم في مجموعاتك (AUL)"
             )
         if token not in _check:
             assis = {
@@ -44,11 +44,11 @@ async def auth(_, message: Message):
             }
             await save_authuser(message.chat.id, token, assis)
             await message.reply_text(
-                f"Added to Authorised Users List of this group."
+                f"تم توثيق هذه الشخص ،الان يمكنه الاستخدام بدون مشرف."
             )
             return
         else:
-            await message.reply_text(f"Already in the Authorised Users List.")
+            await message.reply_text(f"بالفعل تم توثيقة.")
         return
     from_user_id = message.from_user.id
     user_id = message.reply_to_message.from_user.id
@@ -61,7 +61,7 @@ async def auth(_, message: Message):
         count += 1
     if int(count) == 20:
         return await message.reply_text(
-            "You can only have 20 Users In Your Groups Authorised Users List (AUL)"
+            "يمكن أن يكون لديك 20 مستخدمًا فقط في قائمة المستخدمين الموثوقين لهم في مجموعاتك (AUL)"
         )
     if token not in _check:
         assis = {
@@ -72,20 +72,20 @@ async def auth(_, message: Message):
         }
         await save_authuser(message.chat.id, token, assis)
         await message.reply_text(
-            f"Added to Authorised Users List of this group."
+            f"تم توثيقة في البوت ، يمكنه الان استخدم الاوامر بدون مشرف."
         )
         return
     else:
-        await message.reply_text(f"Already in the Authorised Users List.")
+        await message.reply_text(f"بالفعل تم توثيقة.")
 
 
-@app.on_message(filters.command("unauth") & filters.group)
+@app.on_message(filters.command("تنزيل") & filters.group)
 @AdminActual
 async def whitelist_chat_func(_, message: Message):
     if not message.reply_to_message:
         if len(message.command) != 2:
             await message.reply_text(
-                "Reply to a user's message or give username/user_id."
+                "الرد على رسالة المستخدم أو إعطاء اسم المستخدم."
             )
             return
         user = message.text.split(None, 1)[1]
@@ -96,34 +96,34 @@ async def whitelist_chat_func(_, message: Message):
         deleted = await delete_authuser(message.chat.id, token)
         if deleted:
             return await message.reply_text(
-                f"Removed from Authorised Users List of this Group."
+                f"تمت إزالته من قائمة المستخدمين الموثوقين لهذه المجموعة."
             )
         else:
-            return await message.reply_text(f"Not an Authorised User.")
+            return await message.reply_text(f"لم يتم رفعة اصلا؟.")
     user_id = message.reply_to_message.from_user.id
     token = await int_to_alpha(user_id)
     deleted = await delete_authuser(message.chat.id, token)
     if deleted:
         return await message.reply_text(
-            f"Removed from Authorised Users List of this Group."
+            f"تمت إزالته من قائمة المستخدمين الموثوقين لهذه المجموعة."
         )
     else:
-        return await message.reply_text(f"Not an Authorised User.")
+        return await message.reply_text(f"لم يتم رفعة اصلا؟.")
 
 
-@app.on_message(filters.command("authusers") & filters.group)
+@app.on_message(filters.command("الموثوقين") & filters.group)
 async def authusers(_, message: Message):
     _playlist = await get_authuser_names(message.chat.id)
     if not _playlist:
         return await message.reply_text(
-            f"No Authorised Users in this Group.\n\nAdd Auth users by /auth and remove by /unauth."
+            f"لا يوجد مستخدمون موثوقين لهم في هذه المجموعة.\n\nيمكنك اضافتهم عن طريق الامر /توثيق بالرد او اسم المستخدم."
         )
     else:
         j = 0
         m = await message.reply_text(
-            "Fetching Authorised Users... Please Wait"
+            "إحضار المستخدمين الموثوقين لهم .."
         )
-        msg = f"**Authorised Users List[AUL]:**\n\n"
+        msg = f"**🧑‍💻 قائمة الموثوقين[AUL]:**\n\n"
         for note in _playlist:
             _note = await get_authuser(message.chat.id, note)
             user_id = _note["auth_user_id"]
