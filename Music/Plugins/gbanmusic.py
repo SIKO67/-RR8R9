@@ -25,11 +25,11 @@ async def ban_globally(_, message):
         from_user = message.from_user
         sudoers = await get_sudoers()
         if user.id == from_user.id:
-            return await message.reply_text("تريد تحظر نفسك . حمار انت?")
+            return await message.reply_text("Anda ingin memblokir diri sendiri?")
         elif user.id == BOT_ID:
-            await message.reply_text("تريدني احظر نفسي شبيك بابا??")
+            await message.reply_text("Haruskah saya memblokir diri saya sendiri??")
         elif user.id in sudoers:
-            await message.reply_text("لا استطيع حظر المطور ياعيني?")
+            await message.reply_text("Anda ingin memblokir pengguna sudo?")
         else:
 
             await add_gban_user(user.id)
@@ -77,15 +77,15 @@ __**Larangan Global Baru pada Musik**__
     mention = message.reply_to_message.from_user.mention
     sudoers = await get_sudoers()
     if user_id == from_user_id:
-        await message.reply_text("تريد تحظر نفسك . حمار انت?")
+        await message.reply_text("Anda ingin memblokir diri sendiri?")
     elif user_id == BOT_ID:
-        await message.reply_text("تريدني احظر نفسي شبيك بابا??")
+        await message.reply_text("Haruskah saya memblokir diri saya sendiri??")
     elif user_id in sudoers:
-        await message.reply_text("لا استطيع حظر المطور ياعيني?")
+        await message.reply_text("Anda ingin memblokir pengguna sudo?")
     else:
         is_gbanned = await is_gbanned_user(user_id)
         if is_gbanned:
-            await message.reply_text("محظور منزمان يامطوري.")
+            await message.reply_text("Sudah Gbanned.")
         else:
             await add_gban_user(user_id)
             served_chats = []
@@ -94,9 +94,9 @@ __**Larangan Global Baru pada Musik**__
                 served_chats.append(int(chat["chat_id"]))
             m = await message.reply_text(
                 f"""
-**حظر عام {mention}**
+**Menginisialisasi Larangan Global pada {mention}**
 
-الوقت: {len(served_chats)}
+Waktu yang diharapkan: {len(served_chats)}
 """
             )
             number_of_chats = 0
@@ -110,12 +110,12 @@ __**Larangan Global Baru pada Musik**__
                 except Exception:
                     pass
             ban_text = f"""
-__**حظر عام بواسطة المطورين**__
-**الاسم:** {message.chat.title} [`{message.chat.id}`]
-**معرف المطور:** {from_user_mention}
-**مستخدمين مخظورين:** {mention}
-**معرف مستخدم الدردشة:** `{user_id}`
-**دردشة:** {number_of_chats}"""
+__**Larangan Global Baru pada Musik**__
+**Asal:** {message.chat.title} [`{message.chat.id}`]
+**Pengguna Sudo:** {from_user_mention}
+**Pengguna yang Diblokir:** {mention}
+**ID Pengguna yang obrolan:** `{user_id}`
+**Obrolan:** {number_of_chats}"""
             try:
                 await m.delete()
             except Exception:
@@ -127,7 +127,7 @@ __**حظر عام بواسطة المطورين**__
             return
 
 
-@app.on_message(filters.command("الغاء حظر") & filters.user(OWNER))
+@app.on_message(filters.command("ungban") & filters.user(OWNER))
 async def unban_globally(_, message):
     if not message.reply_to_message:
         if len(message.command) != 2:
@@ -196,4 +196,3 @@ async def chat_watcher_func(_, message):
 **Kemungkinan Alasan:** Potensi Spammer dan Penyalahguna.
 """
         )
-
