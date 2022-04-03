@@ -33,10 +33,10 @@ async def bot_sys_stats():
     mem = psutil.virtual_memory().percent
     disk = psutil.disk_usage("/").percent
     stats = f"""
-**Uptime:** {get_readable_time((bot_uptime))}
-**CPU:** {cpu}%
-**RAM:** {mem}%
-**Disk: **{disk}%"""
+**مدة التشغيل:** {get_readable_time((bot_uptime))}
+**وحدة المعالجة المركزية:** {cpu}%
+**الرام:** {mem}%
+**القرص: **{disk}%"""
     return stats
 
 
@@ -48,7 +48,7 @@ async def gstats(_, message):
     except:
         pass
     uptime = await bot_sys_stats()
-    response = await message.reply_text("Getting Stats!"
+    response = await message.reply_text("الحصول على الإحصائيات!"
     )
     end = datetime.now()
     resp = (end - start).microseconds / 1000
