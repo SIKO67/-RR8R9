@@ -118,37 +118,37 @@ async def getspy(_,CallbackQuery):
                 if int(a) == 1:
                     j += 1
                     a += 1
-                    a1 = InlineKeyboardButton(text=f"(240)p 📹 {humanbytes(x['filesize'])}", callback_data=f"ytdata video||{x['format_id']}||{videoid}")
+                    a1 = InlineKeyboardButton(text=f"(240)pفيديو بدقة 📹 {humanbytes(x['filesize'])}", callback_data=f"ytdata video||{x['format_id']}||{videoid}")
             if str(134) in check:
                 b += 1
                 if int(b) == 1:
                     j += 1
                     b += 1
-                    a2 = InlineKeyboardButton(text=f"(360)p 📹 {humanbytes(x['filesize'])}", callback_data=f"ytdata video||{x['format_id']}||{videoid}")
+                    a2 = InlineKeyboardButton(text=f"(360)pفيديو بدقة 📹 {humanbytes(x['filesize'])}", callback_data=f"ytdata video||{x['format_id']}||{videoid}")
             if str(135) in check:
                 c += 1
                 if int(c) == 1:
                     j += 1
                     c += 1
-                    a3 = InlineKeyboardButton(text=f"(480)p 📹 {humanbytes(x['filesize'])}", callback_data=f"ytdata video||{x['format_id']}||{videoid}")   
+                    a3 = InlineKeyboardButton(text=f"(480)pفيديو بدقة 📹 {humanbytes(x['filesize'])}", callback_data=f"ytdata video||{x['format_id']}||{videoid}")   
             if str(136) in check:
                 d += 1
                 if int(d) == 1:
                     j += 1
                     d += 1
-                    a4 = InlineKeyboardButton(text=f"(720)p 📹 {humanbytes(x['filesize'])}", callback_data=f"ytdata video||{x['format_id']}||{videoid}")
+                    a4 = InlineKeyboardButton(text=f"(720)pفيديو بدقة 📹 {humanbytes(x['filesize'])}", callback_data=f"ytdata video||{x['format_id']}||{videoid}")
             if str(137) in check:
                 e += 1
                 if int(e) == 1:
                     j += 1
                     e += 1
-                    a5 = InlineKeyboardButton(text=f"(1080)p 📹 {humanbytes(x['filesize'])}", callback_data=f"ytdata video||{x['format_id']}||{videoid}")
+                    a5 = InlineKeyboardButton(text=f"(1080)pفيديو بدقة 📹 {humanbytes(x['filesize'])}", callback_data=f"ytdata video||{x['format_id']}||{videoid}")
             if str(313) in check:
                 f += 1
                 if int(f) == 1:
                     j += 1
                     f += 1
-                    a6 = InlineKeyboardButton(text=f"(2160)p 📹 {humanbytes(x['filesize'])}", callback_data=f"ytdata video||{x['format_id']}||{videoid}")   
+                    a6 = InlineKeyboardButton(text=f"(2160)pفيديو بدقة 📹 {humanbytes(x['filesize'])}", callback_data=f"ytdata video||{x['format_id']}||{videoid}")   
         else:
             return await CallbackQuery.message.reply_text("Video Format Not Found.")
     universal = InlineKeyboardButton(text="مسح •", callback_data=f'close2')
@@ -267,11 +267,11 @@ async def ytdata(_,CallbackQuery):
     type, format, videoid = callback_request.split("||") 
     Name = CallbackQuery.from_user.first_name
     if type == 'audio':
-        a1 = InlineKeyboardButton(text=f"تحميل كصوت", callback_data=f"boom audio||{format}||{videoid}")
-        a2 = InlineKeyboardButton(text=f"تحميل كنموذج ", callback_data=f"boom docaudio||{format}||{videoid}")
+        a1 = InlineKeyboardButton(text=f"• صوت", callback_data=f"boom audio||{format}||{videoid}")
+        a2 = InlineKeyboardButton(text=f"• نموذج  ", callback_data=f"boom docaudio||{format}||{videoid}")
     else:
-        a1 = InlineKeyboardButton(text=f"تحميل كفيديو", callback_data=f"boom video||{format}||{videoid}")
-        a2 = InlineKeyboardButton(text=f"تحميل كنموذج", callback_data=f"boom docvideo||{format}||{videoid}")
+        a1 = InlineKeyboardButton(text=f"• فيديو", callback_data=f"boom video||{format}||{videoid}")
+        a2 = InlineKeyboardButton(text=f"• نموذج ", callback_data=f"boom docvideo||{format}||{videoid}")
     key = InlineKeyboardMarkup(
             [
                 [
@@ -447,7 +447,7 @@ def p_mark(link, channel):
     return buttons    
     
 async def send_file(CallbackQuery, med, filename, videoid, user_id, link, channel):
-    await CallbackQuery.edit_message_text("Upload Started\n\nUploading speed could be slow. Please hold on..", reply_markup = upl)
+    await CallbackQuery.edit_message_text("رفع الملف الان\n\nانتضر قليلا، من فضلك ❤️‍🔥..", reply_markup = upl)
     try:
         await app.send_chat_action(chat_id=CallbackQuery.message.chat.id, action="upload_document")
         buttons = p_mark(link, channel)
