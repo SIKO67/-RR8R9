@@ -59,7 +59,7 @@ async def ytdl(link):
 
 
 
-@app.on_message(command("vplay") & filters.group)
+@app.on_message(command("فيديو") & filters.group)
 async def vplay(c: Client, message: Message):
     replied = message.reply_to_message
     chat_id = message.chat.id
@@ -69,8 +69,8 @@ async def vplay(c: Client, message: Message):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/{GROUP}"),
-                InlineKeyboardButton("ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{CHANNEL}"),
+                InlineKeyboardButton("اغلاق", url=f"https://t.me/{GROUP}"),
+                InlineKeyboardButton("القناة", url=f"https://t.me/{CHANNEL}"),
             ]
         ]
     )
@@ -168,7 +168,7 @@ async def vplay(c: Client, message: Message):
         if replied.video or replied.document:
             what = "Audio Searched"
             await LOG_CHAT(message, what)
-            loser = await replied.reply("📥 **Mengunduh Video...**")
+            loser = await replied.reply("📥 **تحميل الفيديو...**")
             dl = await replied.download()
             link = replied.link
             if len(message.command) < 2:
@@ -246,7 +246,7 @@ async def vplay(c: Client, message: Message):
         else:
             what = "Query Given"
             await LOG_CHAT(message, what)
-            loser = await message.reply("🔎 **Pencarian**")
+            loser = await message.reply(" **❤️‍🔥 يَتمَ اެݪتشغِيݪ اެلانِ...**")
             query = message.text.split(None, 1)[1]
             search = ytsearch(query)
             Q = 480
