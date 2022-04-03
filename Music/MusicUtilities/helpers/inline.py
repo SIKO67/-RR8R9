@@ -30,8 +30,8 @@ def others_markup(videoid, user_id):
             InlineKeyboardButton(text="▢", callback_data=f"stopvc2"),
         ],
         [
-            InlineKeyboardButton(text="• اެضِاެفة اެݪى قاެئمة اެنِتضاެࢪي ​", callback_data=f'playlist {videoid}|{user_id}'),
-            InlineKeyboardButton(text="• اެضِاެفة اެݪى قِاެئمة اެݪمجمۅعةَ ", callback_data=f'group_playlist {videoid}|{user_id}'),
+            InlineKeyboardButton(text="• اެضِاެفة اެݪى قاެئمة اެنتضاެࢪي ​", callback_data=f'playlist {videoid}|{user_id}'),
+            InlineKeyboardButton(text="• اެضِاެفة اެݪىِ قِائمة اެݪمَجمۅعة ", callback_data=f'group_playlist {videoid}|{user_id}'),
         ],
         [
             InlineKeyboardButton(
@@ -208,15 +208,15 @@ play_list_keyboard = InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "➕ ᴜsᴇʀ ᴘʟᴀʏʟɪsᴛ​", callback_data="P_list"
+                        "• اެضِاެفة اެݪى قاެئمة اެنتضاެࢪي​", callback_data="P_list"
                     ),
                     InlineKeyboardButton(
-                        "➕ ɢʀᴏᴜᴘ ᴘʟᴀʏʟɪsᴛ​​", callback_data="G_list"
+                        "• اެضِاެفة اެݪىِ قِائمة اެݪمَجمۅعة​​", callback_data="G_list"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "ᴛᴜᴛᴜᴘ​", callback_data="close2"
+                        "• مَسِحَ​", callback_data="close2"
                     )
                 ]
             ]
@@ -225,7 +225,7 @@ play_list_keyboard = InlineKeyboardMarkup(
 def playlist_markup(user_name, user_id):
     buttons= [
             [
-                InlineKeyboardButton(text=f"ɢʀᴏᴜᴘs", callback_data=f'play_playlist {user_id}|group'),
+                InlineKeyboardButton(text=f"مَسِحَ", callback_data=f'play_playlist {user_id}|group'),
                 InlineKeyboardButton(text=f"{user_name[:8]}", callback_data=f'play_playlist {user_id}|personal'),
             ],
             [
