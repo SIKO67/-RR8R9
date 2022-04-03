@@ -151,7 +151,7 @@ async def unban_globally(_, message):
                 await message.reply_text("هو بالفعل حر ، ليش تتنمر عليه?")
             else:
                 await remove_gban_user(user.id)
-                await message.reply_text(f"بالفعل تم العاء حظرة 🧑‍💻!")
+                await message.reply_text(f"بالفعل تم الغاء حظرة 🧑‍💻!")
         return
     from_user_id = message.from_user.id
     user_id = message.reply_to_message.from_user.id
