@@ -148,7 +148,7 @@ async def unban_globally(_, message):
         else:
             is_gbanned = await is_gbanned_user(user.id)
             if not is_gbanned:
-                await message.reply_text("Dia sudah bebas, mengapa menggertaknya?")
+                await message.reply_text("هو بالفعل حر ، ليش تتنمر عليه?")
             else:
                 await remove_gban_user(user.id)
                 await message.reply_text(f"غير محظور يامطوري!")
@@ -158,13 +158,13 @@ async def unban_globally(_, message):
     message.reply_to_message.from_user.mention
     sudoers = await get_sudoers()
     if user_id == from_user_id:
-        await message.reply_text("
+    await message.reply_text("تريد رفع الحظر عن نفسك .حمار انت?")
     elif user_id == BOT_ID:
         await message.reply_text(
-            "Haruskah saya membuka blokir sendiri? Tapi saya tidak diblokir."
+            "فتح نفسك؟  لكني لست محظورا."
         )
     elif user_id in sudoers:
-        await message.reply_text("Pengguna Sudo tidak dapat diblokir/diblokir.")
+        await message.reply_text("لايمكن للمطورين.")
     else:
         is_gbanned = await is_gbanned_user(user_id)
         if not is_gbanned:
