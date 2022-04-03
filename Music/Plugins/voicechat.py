@@ -108,7 +108,7 @@ async def activevc(_, message: Message):
         await message.reply_text("عزيزي المطور لاتوجد مكالمات نشطة🧑‍💻")
     else:
         await message.reply_text(
-            f"**Active Voice Chats:-**\n\n{text}",
+            f"**المكالمات الجماعية النشطة الان 🧑‍💻:-**\n\n{text}",
             disable_web_page_preview=True,
         )
 
