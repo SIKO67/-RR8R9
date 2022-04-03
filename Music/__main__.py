@@ -22,8 +22,8 @@ Client(
 ).start()
 
 
-print(f"[INFO]: BOT STARTED AS {BOT_NAME}!")
-print(f"[INFO]: ASSISTANT STARTED AS {ASSNAME}!")
+print(f"[INFO]: بدء البوت يعمل بواسطة مطور سورس فريدوم{BOT_NAME}!")
+print(f"[INFO]: بدء المساعد يعمل بواسطة مطور سورس فريدوم{ASSNAME}!")
 
 
 
@@ -35,7 +35,7 @@ async def load_start():
             await app.edit_message_text(
                 restart_data["chat_id"],
                 restart_data["message_id"],
-                "**Restarted the Bot Successfully.**",
+                "**تم اعادة تشغيل البوت بنجاح.**",
             )
         except Exception:
             pass
