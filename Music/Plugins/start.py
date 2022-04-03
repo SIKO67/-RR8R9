@@ -46,7 +46,7 @@ def start_pannel():
             InlineKeyboardButton("ძᥱ᥎ᥱᥣ᥆ρᥱr", url="https://t.me/rr8r9"),
         ],
         [
-            InlineKeyboardButton("اެلمَطۅࢪ", url="https://t.me/{OWNER_NAME}),
+            InlineKeyboardButton("اެلمَطۅࢪ", url="https://t.me/{CHANNEL}"),
         ],
     ]
     return (
@@ -62,8 +62,8 @@ pstart_markup = InlineKeyboardMarkup(
                 "➕ اެضِفَنِيَ اެݪىِ مَجَمَۅٛعَتَكَ ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true"),
         ],
         [
-            InlineKeyboardButton(text="ძᥱ᥎ᥱᥣ᥆ρᥱr​", url=f"https://t.me/{GROUP}"),
-            InlineKeyboardButton("اެلمَطۅࢪ", url=f"https://t.me/{OWNER_NAME}),
+            InlineKeyboardButton(text="ძᥱ᥎ᥱᥣ᥆ρᥱr​", url=f"https://t.me/RR3R2"),
+            InlineKeyboardButton("اެلمَطۅࢪ", url=f"https://t.me/{CHANNEL}"),
         ],
        
     ]
