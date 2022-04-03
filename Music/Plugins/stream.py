@@ -269,13 +269,13 @@ async def vplay(c: Client, message: Message):
                         await message.reply_photo(
                             photo="cache/IMG_20211230_211039_090.jpg",
                             caption=f"""
-💡 **Trek ditambahkan ke antrian**
+❤️‍🔥 **تمت إضافة المسارات إلى قائمة الانتظار**
 
-🏷 **Nama:** [{songname[:999]}]({url})
-⏱️ **Durasi:** {duration}
-🎧 **Atas permintaan:** {requester}
+❤️‍🔥 **الاسم:** [{songname[:999]}]({url})
+❤️‍🔥 **المدة:** {duration}
+❤️‍🔥 **طلب من:** {requester}
 
-#️⃣ **Posisi antrian** {pos}
+#️⃣ **قائمة الانتضار** {pos}
 """,
                             reply_markup=keyboard,
                         )
@@ -298,13 +298,13 @@ async def vplay(c: Client, message: Message):
                             await message.reply_photo(
                                 photo="cache/IMG_20211230_211039_090.jpg",
                                 caption=f"""
-▷ **Memutar video dimulai**
+▷ **يبدأ تشغيل الفيديو**
 
-🏷 **Nama:** [{songname[:999]}]({url})
-⏱️ **Durasi:** {duration}
-🎧 **Atas permintaan:** {requester}
+❤️‍🔥 **الاسم:** [{songname[:999]}]({url})
+❤️‍🔥 **المدة:** {duration}
+❤️‍🔥 **طلب من:** {requester}
 
-💬 **Diputar di:** {message.chat.title}
+❤️‍🔥 **تم تشغيلها:** {message.chat.title}
 """,
                                 reply_markup=keyboard,
                             )
@@ -313,7 +313,7 @@ async def vplay(c: Client, message: Message):
                             await message.reply_text(f"Error: `{ep}`")
 
 
-@app.on_message(command("vplaylist") & filters.group)
+@app.on_message(command("انتضار الفيديو") & filters.group)
 async def playlist(client, m: Message):
     chat_id = m.chat.id
     if chat_id in QUEUE:
@@ -321,11 +321,11 @@ async def playlist(client, m: Message):
         if len(chat_queue) == 1:
             await m.delete()
             await m.reply(
-                f"**🎧 SEKARANG MEMUTAR:** \n[{chat_queue[0][0]}]({chat_queue[0][2]}) | `{chat_queue[0][3]}`",
+                f"**🎧 الان العب:** \n[{chat_queue[0][0]}]({chat_queue[0][2]}) | `{chat_queue[0][3]}`",
                 disable_web_page_preview=True,
             )
         else:
-            QUE = f"**🎧 SEKARANG MEMUTAR:** \n[{chat_queue[0][0]}]({chat_queue[0][2]}) | `{chat_queue[0][3]}` \n\n**⏯ DAFTAR ANTRIAN:**"
+            QUE = f"**🎧 الان العب:** \n[{chat_queue[0][0]}]({chat_queue[0][2]}) | `{chat_queue[0][3]}` \n\n**⏯ قائمة الانتظار:**"
             l = len(chat_queue)
             for x in range(1, l):
                 hmm = chat_queue[x][0]
@@ -334,4 +334,4 @@ async def playlist(client, m: Message):
                 QUE = QUE + "\n" + f"**#{x}** - [{hmm}]({hmmm}) | `{hmmmm}`\n"
             await m.reply(QUE, disable_web_page_preview=True)
     else:
-        await m.reply("**❌ Tidak memutar apapun**")
+        await m.reply("**🧑‍💻 لايوجد شيء قيد التشغيل**")
