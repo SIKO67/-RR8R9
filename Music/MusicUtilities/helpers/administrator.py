@@ -14,8 +14,9 @@ async def authorised(message):
 async def unauthorised(message: Message):
     chatID = message.chat.id
     text = (
-        "لازم عندك هاي الصلاحية حتى تكدر تستخدمها."
-        + f"\nاشراف كامل الصلاحيات "
+        " وخر ؟لازم عندك هاي الصلاحية حتى تكدر تستخدمها."
+
+        + f"\nاشراف مع صلاحية المكالمات "
     )
     try:
         await message.reply_text(text)
