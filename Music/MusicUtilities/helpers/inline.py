@@ -356,15 +356,15 @@ def private_panel():
 def setting_markup():
     buttons = [
         [
-            InlineKeyboardButton(text="• جَۅٛدَةَ اެݪصَۅٛتَ", callback_data="AQ"),
-            InlineKeyboardButton(text="• مَسِتَۅٛىِ اެݪصَۅٛتَ", callback_data="AV"),
+            InlineKeyboardButton(text="• جودة الصوت ", callback_data="AQ"),
+            InlineKeyboardButton(text="•  مستوى الصوت", callback_data="AV"),
         ],
         [
             InlineKeyboardButton(
-                text="👥 اެݪمَسِتخِدمۅن اެلمَۅثَۅقۅن", callback_data="AU"
+                text="👥 المستخدمون الموثوقون ", callback_data="AU"
             ),
             InlineKeyboardButton(
-                text="💻 ݪۅٛحَةَ اެݪقِيَاެدَةَ", callback_data="Dashboard"
+                text="💻 لوحة التحكم", callback_data="Dashboard"
             ),
         ],
         [
@@ -378,20 +378,20 @@ def volmarkup():
     buttons = [
         [
             InlineKeyboardButton(
-                text="🔄 ʀᴇsᴇᴛ ᴀᴜᴅɪᴏ ᴠᴏʟᴜᴍᴇ 🔄", callback_data="HV"
+                text="• إعادة ضبط حجم الصوت", callback_data="HV"
             )
         ],
         [
-            InlineKeyboardButton(text="• حَجَمَ مَنِخِفَصَ", callback_data="LV"),
-            InlineKeyboardButton(text="• حَجَمَ مَتَۅٛسِطَ", callback_data="MV"),
+            InlineKeyboardButton(text="• حجم منخفض", callback_data="LV"),
+            InlineKeyboardButton(text="• حجم متوسط ", callback_data="MV"),
         ],
         [
-            InlineKeyboardButton(text="• حَجَمَ مَࢪتَفَعَ", callback_data="HV"),
-            InlineKeyboardButton(text="• حَجَمَ مَࢪتَفَعَ جَدَاެً", callback_data="VAM"),
+            InlineKeyboardButton(text="• حجم مرتفع ", callback_data="HV"),
+            InlineKeyboardButton(text="• حجم مرتفع جداً ", callback_data="VAM"),
         ],
         [
             InlineKeyboardButton(
-                text="🔽 حَجمَ مَخِصص 🔽", callback_data="Custommarkup"
+                text="🔽 حجم مخصص 🔽", callback_data="Custommarkup"
             )
         ],
         [InlineKeyboardButton(text="🔙 ࢪجَۅٛعَ", callback_data="settingm")],
@@ -413,7 +413,7 @@ def custommarkup():
             InlineKeyboardButton(text="+50", callback_data="PFZ"),
             InlineKeyboardButton(text="-50", callback_data="MFZ"),
         ],
-        [InlineKeyboardButton(text="🔼 حَجمَ مَخِصص 🔼", callback_data="AV")],
+        [InlineKeyboardButton(text="🔼 حجم مخصص 🔼", callback_data="AV")],
     ]
     return f"🔧  **{BOT_NAME} • الاعدادات**", buttons
 
@@ -421,12 +421,12 @@ def custommarkup():
 def usermarkup():
     buttons = [
         [
-            InlineKeyboardButton(text="👥 اެݪمَسِتخِدمۅن اެلمَۅثَۅقۅن", callback_data="EVE"),
-            InlineKeyboardButton(text="🙍 اެݪمَشِࢪفَۅٛنِ فَقِطَ", callback_data="AMS"),
+            InlineKeyboardButton(text="👥 المستخدمون الموثوقون", callback_data="EVE"),
+            InlineKeyboardButton(text="🙍 المشرفون فقط", callback_data="AMS"),
         ],
         [
             InlineKeyboardButton(
-                text="📋 اެݪمَسِتخِدمۅن اެلمَۅثَۅقۅن", callback_data="USERLIST"
+                text="📋 المستخدمون الموثوقون", callback_data="USERLIST"
             )
         ],
         [InlineKeyboardButton(text="🔙 ࢪجَۅٛعَ", callback_data="settingm")],
