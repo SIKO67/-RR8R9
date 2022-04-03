@@ -43,10 +43,10 @@ def start_pannel():
             InlineKeyboardButton(text="قناެة اެلمَطۅࢪ", url=f"https://t.me/{CHANNEL}"),
         ],
         [
-            InlineKeyboardButton("ძᥱ᥎ᥱᥣ᥆ρᥱr", url="https://telegra.ph/ҡʏʏ-ᴍᴇᴍ-ᴇx-01-21-2"),
+            InlineKeyboardButton("ძᥱ᥎ᥱᥣ᥆ρᥱr", url="https://t.me/rr8r9"),
         ],
         [
-            InlineKeyboardButton("اެلمَطۅࢪ", url="https://t.me/{OWNER_NAME}"),
+            InlineKeyboardButton("اެلمَطۅࢪ", url="https://t.me/{OWNER_NAME}),
         ],
     ]
     return (
@@ -63,7 +63,7 @@ pstart_markup = InlineKeyboardMarkup(
         ],
         [
             InlineKeyboardButton(text="ძᥱ᥎ᥱᥣ᥆ρᥱr​", url=f"https://t.me/{GROUP}"),
-            InlineKeyboardButton("اެلمَطۅࢪ", url=f"https://t.me/{OWNER_NAME}"),
+            InlineKeyboardButton("اެلمَطۅࢪ", url=f"https://t.me/{OWNER_NAME}),
         ],
        
     ]
@@ -78,11 +78,11 @@ async def welcome(_, message: Message):
         try:
             if member.id in OWNER:
                 return await message.reply_text(
-                    f"💡 Pemilik Bot [{member.mention}] baru saja bergabung di grup ini."
+                    f"🧑‍💻 انضم مطور سورس فريدوم [{member.mention}] للتو إلى هذه المجموعة."
                 )
             if member.id in SUDOERS:
                 return await message.reply_text(
-                    f"💡 Admin Bot [{member.mention}] baru saja bergabung di grup ini."
+                    f"❤️‍🔥انضم احد مطورين البوت [{member.mention}] الان الى المجموعة."
                 )
             if member.id == ASSID:
                 await remove_active_chat(chat_id)
