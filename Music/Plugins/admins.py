@@ -101,7 +101,7 @@ async def stop_cmd(_, message):
         pass   
     await message.reply_text("Menghapus Database, Antrian, Log, File Mentah, Unduhan.")
     
-@app.on_message(filters.command(["pause", f"pause@{BOT_USERNAME}", "ps"]))
+@app.on_message(filters.command(["توقف", f"pause@{BOT_USERNAME}", "ps"]))
 async def pause_cmd(_, message): 
     if message.sender_chat:
         return await message.reply_text("Kamu adalah __Admin Anonim__!\nKembalikan ke Akun Pengguna.") 
@@ -112,14 +112,14 @@ async def pause_cmd(_, message):
     checking = message.from_user.mention
     chat_id = message.chat.id
     if not await is_active_chat(chat_id):
-        return await message.reply_text("Saya tidak berpikir jika ada sesuatu yang diputar di obrolan suara")
+        return await message.reply_text("ماكو شي مشتغل،")
     elif not await is_music_playing(message.chat.id):
-        return await message.reply_text("Saya tidak berpikir jika ada sesuatu yang diputar di obrolan suara")   
+        return await message.reply_text("ماكو شي مشتغل،")   
     await music_off(chat_id)
     await music.pytgcalls.pause_stream(chat_id)
-    await message.reply_text(f"🎧 Obrolan Suara Dijeda oleh {checking}!")
+    await message.reply_text(f"🎧 تم ايقاف التشغيل مؤقتا بواسطة {checking}!")
     
-@app.on_message(filters.command(["resume", f"resume@{BOT_USERNAME}", "rs"]))
+@app.on_message(filters.command(["استمرار", f"resume@{BOT_USERNAME}", "rs"]))
 async def stop_cmd(_, message): 
     if message.sender_chat:
         return await message.reply_text("Kamu adalah __Admin Anonim__!\nKembalikan ke Akun Pengguna.") 
@@ -136,9 +136,9 @@ async def stop_cmd(_, message):
     else:
         await music_on(chat_id)
         await music.pytgcalls.resume_stream(chat_id)
-        await message.reply_text(f"**🎧 Obrolan Suara Dilanjutkan Oleh {checking}!**")
+        await message.reply_text(f"**🎧 تم الاستمرار بواسطة {checking}!**")
 
-@app.on_message(filters.command(["end", f"end@{BOT_USERNAME}", "e"]))
+@app.on_message(filters.command(["كافي", f"end@{BOT_USERNAME}", "e"]))
 async def stop_cmd(_, message): 
     if message.sender_chat:
         return await message.reply_text("Kamu adalah __Admin Anonim__!\nKembalikan ke Akun Pengguna.") 
@@ -155,11 +155,11 @@ async def stop_cmd(_, message):
             pass                        
         await remove_active_chat(chat_id)
         await music.pytgcalls.leave_group_call(chat_id)
-        await message.reply_text(f"**🎧 Obrolan Suara Berakhir/Dihentikan {checking}!**") 
+        await message.reply_text(f"**🎧 تم الانهاء بواسطة {checking}!**") 
     else:
-        return await message.reply_text("Saya tidak berpikir jika ada sesuatu yang diputar di obrolan suara")
+        return await message.reply_text("ماكو شي مشتغل، توكل منا 🧑‍💻")
     
-@app.on_message(filters.command(["skip", f"skip@{BOT_USERNAME}", "sk"]))
+@app.on_message(filters.command(["تخطي", f"skip@{BOT_USERNAME}", "sk"]))
 async def stop_cmd(_, message): 
     if message.sender_chat:
         return await message.reply_text("Kamu adalah __Admin Anonim__!\nKembalikan ke Akun Pengguna.") 
@@ -211,25 +211,25 @@ async def stop_cmd(_, message):
                         if flex[str(bytesx)] == 1:
                             flex[str(bytesx)] += 1
                             sedtime.sleep(1)
-                            mystic.edit(f"Downloading {title[:50]}\n\n**File Size:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec")
+                            mystic.edit(f"تحميل {title[:50]}\n\n**حجم الملف:** {size}\n**تحميل:** {percentage}\n**السرعة:** {speed}\n**و:** {eta} ثانية")
                         if per > 500:    
                             if flex[str(bytesx)] == 2:
                                 flex[str(bytesx)] += 1
                                 sedtime.sleep(0.5)
-                                mystic.edit(f"Downloading {title[:50]}...\n\n**File Size:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec")
-                                print(f"[{videoid}] Downloaded {percentage} at a speed of {speed} in {chat_title} | ETA: {eta} seconds")
+                                mystic.edit(f"تحميل {title[:50]}...\n\n**حجم الملف:** {size}\n**تحميل:** {percentage}\n**السرعة:** {speed}\n**و:** {eta} ثانية")
+                                print(f"[{videoid}] تحميل {percentage} بسرعة {speed} في {chat_title} | و: {eta} ثواني")
                         if per > 800:    
                             if flex[str(bytesx)] == 3:
                                 flex[str(bytesx)] += 1
                                 sedtime.sleep(0.5)
-                                mystic.edit(f"Downloading {title[:50]}....\n\n**File Size:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec")
-                                print(f"[{videoid}] Downloaded {percentage} at a speed of {speed} in {chat_title} | ETA: {eta} seconds")
+                                mystic.edit(f"تحميل {title[:50]}....\n\n**حجم الملف:** {size}\n**تحميل:** {percentage}\n**السرعة:** {speed}\n**و:** {eta} ثانية")
+                                print(f"[{videoid}] تحميل {percentage} بسرعة {speed} في {chat_title} | و: {eta} seconds")
                         if per == 1000:    
                             if flex[str(bytesx)] == 4:
                                 flex[str(bytesx)] = 1
                                 sedtime.sleep(0.5)
-                                mystic.edit(f"Downloading {title[:50]}.....\n\n**File Size:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec") 
-                                print(f"[{videoid}] Downloaded {percentage} at a speed of {speed} in {chat_title} | ETA: {eta} seconds")
+                                mystic.edit(f"تحميل {title[:50]}.....\n\n**حجم الملف:** {size}\n**تحميل:** {percentage}\n**السرعة:** {speed}\n**و:** {eta} ثانية") 
+                                print(f"[{videoid}] تحميل {percentage} بسرعة {speed} في {chat_title} | و: {eta} ثواني")
                 loop = asyncio.get_event_loop()
                 xxx = await loop.run_in_executor(None, download, url, my_hook)
                 file = await convert(xxx)
@@ -259,11 +259,11 @@ async def stop_cmd(_, message):
                     reply_markup=InlineKeyboardMarkup(buttons),
                     caption=(
                         f"""
-<b>⏭️ Melewati lagu</b>
+<b>⏭️ تخطي الأغنية</b>
 
-<b>🏷 Nama:</b>[{title[:25]}]({url})
-<b>⏱️ Durasi:</b> {duration}
-<b>🎧 Atas permintaan:</b> {semx.mention}
+<b>❤️‍🔥 الاسم:</b>[{title[:25]}]({url})
+<b>❤️‍🔥 المدة:</b> {duration}
+<b>❤️‍🔥 طلب من:</b> {semx.mention}
 """
                     ),
                 )
@@ -305,10 +305,10 @@ async def stop_cmd(_, message):
                 )
                 return
 
-@app.on_message(filters.command(["reload", f"reload@{BOT_USERNAME}"]))
+@app.on_message(filters.command(["اعادة", f"reload@{BOT_USERNAME}"]))
 async def reload(_, message):
     chat_id = message.chat.id
     await _.send_message(
     chat_id,
-    "✅ Bot dimulai ulang **berhasil**\n\n✅ **Admin** daftar telah **diperbarui**"
+    "✅نجح  **تمت إعادة تشغيل البوت**\n\n✅ **الادمنية** وبيانات **البوت**"
 )
