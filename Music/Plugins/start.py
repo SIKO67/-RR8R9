@@ -39,14 +39,13 @@ from pyrogram.types import (
 def start_pannel():
     buttons = [
         [
-            InlineKeyboardButton(text="S᥆ᥙrᥴᥱ​", url=f"https://t.me/{GROUP}"),
-            InlineKeyboardButton(text="قناެة اެلمَطۅࢪ", url=f"https://t.me/{CHANNEL}"),
+            InlineKeyboardButton(text="قناة المطور", url=f"https://t.me/{CHANNEL}"),
         ],
         [
-            InlineKeyboardButton("ძᥱ᥎ᥱᥣ᥆ρᥱr", url="https://t.me/rr8r9"),
+            InlineKeyboardButton("ძᥱ᥎ᥱᥣ᥆ρᥱr", url="https://t.me/xl444"),
         ],
         [
-            InlineKeyboardButton("اެلمَطۅࢪ", url="https://t.me/{CHANNEL}"),
+            InlineKeyboardButton("• الاوامر", url="https://telegra.ph/%D9%85%D8%B1%D8%AD%D8%A8%D8%A7--%D8%AA%D8%A7%D8%A8%D8%B9-%D8%A7%D9%84%D8%A3%D8%B3%D9%81%D9%84-04-03"),
         ],
     ]
     return (
@@ -62,8 +61,8 @@ pstart_markup = InlineKeyboardMarkup(
                 "➕ اެضِفَنِيَ اެݪىِ مَجَمَۅٛعَتَكَ ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true"),
         ],
         [
-            InlineKeyboardButton(text="ძᥱ᥎ᥱᥣ᥆ρᥱr​", url=f"https://t.me/RR3R2"),
-            InlineKeyboardButton("اެلمَطۅࢪ", url=f"https://t.me/{CHANNEL}"),
+            InlineKeyboardButton(text="• اެݪاۅاެمࢪ​", url=f"https://telegra.ph/%D9%85%D8%B1%D8%AD%D8%A8%D8%A7--%D8%AA%D8%A7%D8%A8%D8%B9-%D8%A7%D9%84%D8%A3%D8%B3%D9%81%D9%84-04-03"),
+            InlineKeyboardButton("• اެلمَطۅࢪ", url=f"https://t.me/{CHANNEL}"),
         ],
        
     ]
@@ -90,9 +89,9 @@ async def welcome(_, message: Message):
                 out = start_pannel()
                 await message.reply_text(
                     f"""
-❤️‍🔥 **مَاެطۅݪ ضِفتني ، ݪتَنسىِ تَࢪفعَني حَبي**
+❤️‍🔥 **شكرا لان حتستخدمني ومتعرف اوامري اصلا**
 
-❤️‍🔥 **بَعد ماެࢪفعَتنِي ، تَستَطيعَ اެسِتخداެمي عَن طَࢪيَق اݪاࢪ࣪اެࢪ اެدَنا**
+❤️‍🔥 **ارفعني مشرف كامل صلاحيات وشوف زر • الاوامر **
 """,
                     reply_markup=InlineKeyboardMarkup(out[1]),
                     disable_web_page_preview=True
