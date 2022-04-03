@@ -136,13 +136,13 @@ async def pausevc(_, CallbackQuery):
             )
             await CallbackQuery.message.delete()
         else:
-            await CallbackQuery.answer(f"Tidak ada yang diputar!", show_alert=True)
+            await CallbackQuery.answer(f"ماكو شي مشتغل!", show_alert=True)
             return
     else:
-        await CallbackQuery.answer(f"Tidak ada yang diputar di Musik!", show_alert=True)
+        await CallbackQuery.answer(f"ماكو شي مشتغل!", show_alert=True)
 
 
-@Client.on_callback_query(filters.regex("resumevc"))
+@Client.on_callback_query(filters.regex("توقيف"))
 async def resumevc(_, CallbackQuery):
     a = await app.get_chat_member(
         CallbackQuery.message.chat.id, CallbackQuery.from_user.id
@@ -161,7 +161,7 @@ Anda tidak memiliki izin yang diperlukan untuk melakukan tindakan ini.
     if await is_active_chat(chat_id):
         if await is_music_playing(chat_id):
             await CallbackQuery.answer(
-                "Saya tidak berpikir jika ada sesuatu yang dijeda di obrolan suara",
+                "ماكو شي مشتغل ،",
                 show_alert=True,
             )
             return
@@ -173,14 +173,14 @@ Anda tidak memiliki izin yang diperlukan untuk melakukan tindakan ini.
             user_name = CallbackQuery.from_user.first_name
             rpk = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
             await CallbackQuery.message.reply(
-                f"🎧 Lagu Dilanjutkan oleh {rpk}!", reply_markup=play_keyboard
+                f"🎧 تم الاستمرار بواسطة {rpk}!", reply_markup=play_keyboard
             )
             await CallbackQuery.message.delete()
     else:
-        await CallbackQuery.answer(f"Tidak ada yang diputar!", show_alert=True)
+        await CallbackQuery.answer(f"ماكو شي مشتغل!", show_alert=True)
 
 
-@Client.on_callback_query(filters.regex("skipvc"))
+@Client.on_callback_query(filters.regex("تخ"))
 async def skipvc(_, CallbackQuery):
     a = await app.get_chat_member(
         CallbackQuery.message.chat.id, CallbackQuery.from_user.id
@@ -208,17 +208,17 @@ Anda tidak memiliki izin yang diperlukan untuk melakukan tindakan ini
             await CallbackQuery.answer()
             await CallbackQuery.message.reply(
                 f"""
-**Tombol Lewati Digunakan Oleh** {rpk}
+**زر التخطي المستخدم من قبل** {rpk}
 
-Tidak ada lagi lagu di Antrian
+لا مزيد من الأغاني في قائمة الانتظار
 
-Meninggalkan Obrolan Suara
+مغادرة الدردشة الصوتية
 """
             )
             await music.pytgcalls.leave_group_call(chat_id)
             return
         else:
-            await CallbackQuery.answer("Obrolan Suara Dilewati", show_alert=True)
+            await CallbackQuery.answer("تخطي الدردشة الصوتية", show_alert=True)
             afk = get(chat_id)["file"]
             f1 = afk[0]
             f2 = afk[1]
@@ -227,9 +227,9 @@ Meninggalkan Obrolan Suara
             if str(finxx) != "raw":
                 mystic = await CallbackQuery.message.reply(
                     """
-Musik sedang diputar Daftar Putar....
+يتم تشغيل الموسيقى في قائمة التشغيل ........
 
-Mengunduh Musik Berikutnya Dari Daftar Putar....
+تنزيل الموسيقى التالية من قائمة التشغيل....
 """
                 )
                 url = f"https://www.youtube.com/watch?v={afk}"
@@ -264,37 +264,37 @@ Gagal mengunduh video ini.
                             flex[str(bytesx)] += 1
                             sedtime.sleep(1)
                             mystic.edit(
-                                f"Downloading {title[:50]}\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                                f"تحميل {title[:50]}\n\n**حجم الملف:** {size}\n**تحميل:** {percentage}\n**السرعة:** {speed}\n**و:** {eta} ثانية"
                             )
                         if per > 500:
                             if flex[str(bytesx)] == 2:
                                 flex[str(bytesx)] += 1
                                 sedtime.sleep(0.5)
                                 mystic.edit(
-                                    f"Downloading {title[:50]}...\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                                    f"تحميل {title[:50]}...\n\n**حجم الملف:** {size}\n**تحميل:** {percentage}\n**السرعة:** {speed}\n**و:** {eta} ثانية"
                                 )
                                 print(
-                                    f"[{videoid}] Downloaded {percentage} at a speed of {speed} in {chat_title} | ETA: {eta} seconds"
+                                    f"[{videoid}] تحميل {percentage} بسرعة {speed} في {chat_title} | و: {eta} ثواني"
                                 )
                         if per > 800:
                             if flex[str(bytesx)] == 3:
                                 flex[str(bytesx)] += 1
                                 sedtime.sleep(0.5)
                                 mystic.edit(
-                                    f"Downloading {title[:50]}....\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                                    f"تحميل {title[:50]}....\n\n**حجم الملف:** {size}\n**تحميل:** {percentage}\n**السرعة:** {speed}\n**و:** {eta} ثانية"
                                 )
                                 print(
-                                    f"[{videoid}] Downloaded {percentage} at a speed of {speed} in {chat_title} | ETA: {eta} seconds"
+                                    f"[{videoid}] تحميل {percentage} بسرعة {speed} في {chat_title} | و: {eta} ثواني"
                                 )
                         if per == 1000:
                             if flex[str(bytesx)] == 4:
                                 flex[str(bytesx)] = 1
                                 sedtime.sleep(0.5)
                                 mystic.edit(
-                                    f"Downloading {title[:50]}.....\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                                    f"تحميل {title[:50]}.....\n\n**حجم الملف:** {size}\n**تحميل:** {percentage}\n**السرعة:** {speed}\n**و:** {eta} ثانية"
                                 )
                                 print(
-                                    f"[{videoid}] Downloaded {percentage} at a speed of {speed} in {chat_title} | ETA: {eta} seconds"
+                                    f"[{videoid}] تحميل {percentage} بسرعة {speed} في {chat_title} | و: {eta} ثواني"
                                 )
 
                 loop = asyncio.get_event_loop()
@@ -329,11 +329,11 @@ Gagal mengunduh video ini.
                     reply_markup=InlineKeyboardMarkup(buttons),
                     caption=(
                         f"""
-<b>⏭️ Melewati lagu permintaa {rpk}</b>
+<b>⏭️ تخطي طلب الأغنية {rpk}</b>
 
-<b>🏷 Nama: </b>[{title[:25]}]({url})
-<b>⏱️ Durasi: :</b> {duration}
-<b>🎧 Atas permintaan:</b> {semx.mention}
+<b>❤️‍🔥 الاسم: </b>[{title[:25]}]({url})
+<b>❤️‍🔥 المدة: :</b> {duration}
+<b>❤️‍🔥 طلب من:</b> {semx.mention}
 """
                     ),
                 )
@@ -374,17 +374,17 @@ Gagal mengunduh video ini.
                     photo=f"downloads/{_chat_}final.png",
                     reply_markup=InlineKeyboardMarkup(buttons),
                     caption=f"""
-<b>⏭️ Melewati lagu permintaa: {rpk}</b>
+<b>⏭️ تخطي طلب الأغنية: {rpk}</b>
 
-<b>🏷️ Nama:</b> {title}
-<b>⌚ Durasi</b> {duration}
-<b>🎧 Atas permintaan:</b> {username}
+<b>❤️‍🔥 الاسم:</b> {title}
+<b>❤️‍🔥 المدة</b> {duration}
+<b>❤️‍🔥 طلب من:</b> {username}
 """,
                 )
                 return
 
 
-@Client.on_callback_query(filters.regex("stopvc"))
+@Client.on_callback_query(filters.regex("اوكف"))
 async def stopvc(_, CallbackQuery):
     a = await app.get_chat_member(
         CallbackQuery.message.chat.id, CallbackQuery.from_user.id
@@ -410,9 +410,9 @@ async def stopvc(_, CallbackQuery):
         user_id = CallbackQuery.from_user.id
         user_name = CallbackQuery.from_user.first_name
         rpk = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
-        await CallbackQuery.message.reply(f"🎧 Lagu Dihentikan oleh {rpk}!")
+        await CallbackQuery.message.reply(f"🎧 تم الإيقاف بواسطة {rpk}!")
     else:
-        await CallbackQuery.answer(f"Tidak ada yang diputar!", show_alert=True)
+        await CallbackQuery.answer(f"ماكو شي مشتغل!", show_alert=True)
 
         
 @Client.on_callback_query(filters.regex("play_playlist"))
@@ -430,10 +430,10 @@ async def play_playlist(_,CallbackQuery):
     chat_title = CallbackQuery.message.chat.title
     if str(smex) == "personal":
         if CallbackQuery.from_user.id != int(user_id):
-            return await CallbackQuery.answer("This Is Not Forr You! Play Your Own Playlist Stupid!", show_alert=True)
+            return await CallbackQuery.answer("هذا ليس لك!  تشغيل غبي قائمة التشغيل الخاصة بك!", show_alert=True)
         _playlist = await get_note_names(userid)
         if not _playlist:
-            return await CallbackQuery.answer(f"You Have No Playlist On Servers.", show_alert=True)
+            return await CallbackQuery.answer(f"ليس لديك قائمة تشغيل على الخوادم.", show_alert=True)
         else:
             await CallbackQuery.message.delete()
             logger_text=f"""Starting Playlist
@@ -443,9 +443,9 @@ By :- {Name}
 
 Personal Playlist Playing."""
             await ASS_ACC.send_message(LOG_GROUP_ID, f"{logger_text}", disable_web_page_preview=True)
-            mystic = await CallbackQuery.message.reply_text(f"Starting {Name}'s Personal Playlist.\n\nRequested By:- {CallbackQuery.from_user.first_name}")   
+            mystic = await CallbackQuery.message.reply_text(f"بدءا {Name}قائمة التشغيل الشخصية.\n\nطلب من:- {CallbackQuery.from_user.first_name}")   
             checking = f"[{CallbackQuery.from_user.first_name}](tg://user?id={userid})"
-            msg = f"Queued Playlist:\n\n"
+            msg = f"قائمة التشغيل في قائمة الانتظار:\n\n"
             j = 0
             for note in _playlist:
                 _note = await get_playlist(CallbackQuery.from_user.id, note)
@@ -486,35 +486,35 @@ Personal Playlist Playing."""
                                 flex[str(bytesx)] += 1
                                 try:
                                     if eta > 2:
-                                        mystic.edit(f"Downloading {title[:50]}\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec")
+                                        mystic.edit(f"تحميل {title[:50]}\n\n**حجم الملف:** {size}\n**تحميل:** {percentage}\n**السرعة:** {speed}\n**و:** {eta} ثانية")
                                 except Exception as e:
                                     pass
                             if per > 250:    
                                 if flex[str(bytesx)] == 2:
                                     flex[str(bytesx)] += 1
                                     if eta > 2:     
-                                        mystic.edit(f"Downloading {title[:50]}..\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec")
-                                    print(f"[{videoid}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds")
+                                        mystic.edit(f"تحميل {title[:50]}..\n\n**حجم الملف:** {size}\n**تحميل:** {percentage}\n**السرعة:** {speed}\n**و:** {eta} ثانية")
+                                    print(f"[{videoid}] تحميل {percentage} بسرعة {speed} | ETA: {eta} ثواني")
                             if per > 500:    
                                 if flex[str(bytesx)] == 3:
                                     flex[str(bytesx)] += 1
                                     if eta > 2:     
-                                        mystic.edit(f"Downloading {title[:50]}...\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec")
-                                    print(f"[{videoid}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds")
+                                        mystic.edit(f"تحميل {title[:50]}...\n\n**FileSize:** {size}\n**تحميل:** {percentage}\n**السرعة:** {speed}\n**و:** {eta} ثانية")
+                                    print(f"[{videoid}] تحميل {percentage} بسرعة {speed} | و: {eta} ثواني")
                             if per > 800:    
                                 if flex[str(bytesx)] == 4:
                                     flex[str(bytesx)] += 1
                                     if eta > 2:    
-                                        mystic.edit(f"Downloading {title[:50]}....\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec")
-                                    print(f"[{videoid}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds")
+                                        mystic.edit(f"تحميل {title[:50]}....\n\n**FileSize:** {size}\n**تحميل:** {percentage}\n**السرعة:** {speed}\n**و:** {eta} ثانية")
+                                    print(f"[{videoid}] تحميل {percentage} بسرعة {speed} | و: {eta} ثواني")
                         if d['status'] == 'finished': 
                             try:
                                 taken = d['_elapsed_str']
                             except Exception as e:
                                 taken = "00:00"
                             size = d['_total_bytes_str']
-                            mystic.edit(f"**Downloaded {title[:50]}.....**\n\n**FileSize:** {size}\n**Time Taken:** {taken} sec\n\n**Converting File**[__FFmpeg processing__]")
-                            print(f"[{videoid}] Downloaded| Elapsed: {taken} seconds")  
+                            mystic.edit(f"**تحميل {title[:50]}.....**\n\n**حجم الملف:** {size}\n**الوقت المستغرق:** {taken} ثانية\n\n**تحويل الملف**[__جاري المعالجة__]")
+                            print(f"[{videoid}] تحميل| اكتمل: {taken} ثواني")  
                     loop = asyncio.get_event_loop()
                     xx = await loop.run_in_executor(None, download, url, my_hook)
                     file = await convert(xx)
@@ -537,16 +537,16 @@ Personal Playlist Playing."""
                     m = await CallbackQuery.message.reply_photo(
                     photo=thumb,
                     reply_markup=InlineKeyboardMarkup(buttons),    
-                    caption=(f"🎥<b>__Playing:__ </b>[{title[:25]}]({url}) \n⏳<b>__Duration:__</b> {duration} \n💡<b>__Info:__</b> [Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n👤**__Requested by:__** {checking}")
+                    caption=(f"🎥<b>__تم التشغيل:__ </b>[{title[:25]}]({url}) \n❤️‍🔥<b>__المدة:__</b> {duration} \n❤️‍🔥<b>__معلومات:__</b> [انقر هنا](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n❤️‍🔥**__طلب من:__** {checking}")
                 )   
                     os.remove(thumb)
                     await CallbackQuery.message.delete()
         await mystic.delete()
-        m = await CallbackQuery.message.reply_text("Pasting Queued Playlist to Bin")
+        m = await CallbackQuery.message.reply_text("لصق قائمة التشغيل في سلة المهملات")
         link = await paste(msg)
         preview = link + "/preview.png"
         urlxp = link + "/index.txt"
-        a1 = InlineKeyboardButton(text=f"Checkout Queued Playlist", url=urlxp)
+        a1 = InlineKeyboardButton(text=f"تسجيل الخروج قائمة التشغيل", url=urlxp)
         key = InlineKeyboardMarkup(
             [
                 [
@@ -559,14 +559,14 @@ Personal Playlist Playing."""
                     a1,
                 ],
                 [
-                    InlineKeyboardButton(text="ᴄʟᴏsᴇ​", callback_data=f'close2')
+                    InlineKeyboardButton(text="مسح​", callback_data=f'close2')
                 ]    
             ]
         )
         if await isPreviewUp(preview):
             try:
                 await CallbackQuery.message.reply_photo(
-                    photo=preview, caption=f"This is Queued Playlist Of {Name}.\n\nIf you want to delete any music from playlist use : /delmyplaylist", quote=False, reply_markup=key
+                    photo=preview, caption=f"هذه قائمة تشغيل في قائمة الانتظار لـ {Name}.\n\nإذا كنت تريد حذف أي موسيقى من استخدام قائمة التشغيل : /ماسح", quote=False, reply_markup=key
                 )
                 await m.delete()
             except Exception:
@@ -579,17 +579,17 @@ Personal Playlist Playing."""
     if str(smex) == "group":
         _playlist = await get_note_names(CallbackQuery.message.chat.id)
         if not _playlist:
-            return await CallbackQuery.answer(f"Your Group Has No Playlist On Servers. Try Adding Musics In Playlist.", show_alert=True)
+            return await CallbackQuery.answer(f"لا تحتوي مجموعتك على قائمة تشغيل على الخوادم.  حاول إضافة موسيقى في قائمة التشغيل.", show_alert=True)
         else:
             await CallbackQuery.message.delete()
-            logger_text=f"""Starting Playlist
+            logger_text=f"""بدء قائمة التشغيل
 
 Group :- {chat_title}
 By :- {Name}
 
 Group Playlist Playing."""
             await ASS_ACC.send_message(LOG_GROUP_ID, f"{logger_text}", disable_web_page_preview=True)
-            mystic = await CallbackQuery.message.reply_text(f"Starting Groups's Playlist.\n\nRequested By:- {CallbackQuery.from_user.first_name}")   
+            mystic = await CallbackQuery.message.reply_text(f"بدء قائمة تشغيل المجموعات.\n\nطلب من:- {CallbackQuery.from_user.first_name}")   
             checking = f"[{CallbackQuery.from_user.first_name}](tg://user?id={userid})"
             msg = f"Queued Playlist:\n\n"
             j = 0
@@ -640,19 +640,19 @@ Group Playlist Playing."""
                                     flex[str(bytesx)] += 1
                                     if eta > 2:     
                                         mystic.edit(f"تحميل {title[:50]}..\n\n**حجم الملف:** {size}\n**تحميل:** {percentage}\n**سرعة:** {speed}\n**و:** {eta} ثانية")
-                                    print(f"[{videoid}] تحميل {percentage} بسرعة {speed} | و: {eta} seconds")
+                                    print(f"[{videoid}] تحميل {percentage} بسرعة {speed} | و: {eta} ثواني")
                             if per > 500:    
                                 if flex[str(bytesx)] == 3:
                                     flex[str(bytesx)] += 1
                                     if eta > 2:     
                                         mystic.edit(f"تحميل {title[:50]}...\n\n**حجم الملف:** {size}\n**تحميل:** {percentage}\n**سرعة:** {speed}\n**و:** {eta} ثانية")
-                                    print(f"[{videoid}] تحميل {percentage} بسرعة {speed} | و: {eta} seconds")
+                                    print(f"[{videoid}] تحميل {percentage} بسرعة {speed} | و: {eta} ثواني")
                             if per > 800:    
                                 if flex[str(bytesx)] == 4:
                                     flex[str(bytesx)] += 1
                                     if eta > 2:    
                                         mystic.edit(f"تحميل {title[:50]}....\n\n**حجم الملف:** {size}\n**تحميل:** {percentage}\n**سرعة:** {speed}\n**و:** {eta} ثانية")
-                                    print(f"[{videoid}] تحميل {percentage} بسرعة {speed} | و: {eta} seconds")
+                                    print(f"[{videoid}] تحميل {percentage} بسرعة {speed} | و: {eta} ثواني")
                         if d['status'] == 'finished': 
                             try:
                                 taken = d['_elapsed_str']
@@ -683,17 +683,17 @@ Group Playlist Playing."""
                     m = await CallbackQuery.message.reply_photo(
                     photo=thumb,
                     reply_markup=InlineKeyboardMarkup(buttons),    
-                    caption=(f"🎥<b>__اللعب:__ </b>[{title[:25]}]({url}) \n⏳<b>__المدة:__</b> {duration} \n⚡<b>__معلومات:__</b> [احصل على معلومات اضافية](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n👤**__Requested by:__** {checking}")
+                    caption=(f"🎥<b>__تم التشغيل:__ </b>[{title[:25]}]({url}) \n❤️‍🔥<b>__المدة:__</b> {duration} \n❤️‍🔥<b>__معلومات:__</b> [ انقر هنا ](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n❤️‍🔥**__طلب من:__** {checking}")
                 )   
                     os.remove(thumb)
                     await CallbackQuery.message.delete()
         await asyncio.sleep(1)
         await mystic.delete()
-        m = await CallbackQuery.message.reply_text("Pasting Queued Playlist to Bin")
+        m = await CallbackQuery.message.reply_text("لصق قائمة التشغيل في سلة المهملات")
         link = await paste(msg)
         preview = link + "/preview.png"
         urlxp = link + "/index.txt"
-        a1 = InlineKeyboardButton(text=f"Checkout Queued Playlist", url=urlxp)
+        a1 = InlineKeyboardButton(text=f"تسجيل الخروج قائمة التشغيل", url=urlxp)
         key = InlineKeyboardMarkup(
             [
                 [
@@ -713,7 +713,7 @@ Group Playlist Playing."""
         if await isPreviewUp(preview):
             try:
                 await CallbackQuery.message.reply_photo(
-                    photo=preview, caption=f"This is Queued Playlist of Your Group.\n\nIf you want to delete any music from playlist use : /delgroupplaylist", quote=False, reply_markup=key
+                    photo=preview, caption=f"هذه قائمة التشغيل الخاصة بمجموعتك في قائمة الانتظار.\n\nإذا كنت تريد حذف أي موسيقى من استخدام قائمة التشغيل : /ماسح", quote=False, reply_markup=key
                 )
                 await m.delete()
             except Exception:
@@ -729,7 +729,7 @@ async def group_playlist(_,CallbackQuery):
     await CallbackQuery.answer()
     a = await app.get_chat_member(CallbackQuery.message.chat.id , CallbackQuery.from_user.id)
     if not a.can_manage_voice_chats:
-        return await CallbackQuery.answer("You don't have the required permission to perform this action.\nPermission: MANAGE VOICE CHATS", show_alert=True)
+        return await CallbackQuery.answer("ليس لديك الإذن المطلوب لتنفيذ هذا الإجراء.\nالاذن: دردشة الفيديو", show_alert=True)
     callback_data = CallbackQuery.data.strip()
     chat_id = CallbackQuery.message.chat.id
     callback_request = callback_data.split(None, 1)[1]
@@ -742,7 +742,7 @@ async def group_playlist(_,CallbackQuery):
     _count = await get_note_names(chat_id)
     count = 0
     if not _count:
-        sex = await CallbackQuery.message.reply_text("Welcome To Music's Playlist Feature.\n\nGenerating Your Group's Playlist In Database...Please wait.")
+        sex = await CallbackQuery.message.reply_text("مرحبًا بك في ميزة قائمة تشغيل الموسيقى.\n\nجاري إنشاء قائمة التشغيل الخاصة بمجموعتك في قاعدة البيانات ... الرجاء الانتظار.")
         await asyncio.sleep(2)
         await sex.delete()
     else:
@@ -750,7 +750,7 @@ async def group_playlist(_,CallbackQuery):
             count += 1   
     count = int(count)
     if count == 30:
-        return await CallbackQuery.message.reply_text("Sorry! You can only have 30 music in group playlist.")
+        return await CallbackQuery.message.reply_text("آسف!  يمكن أن يكون لديك 30 موسيقى فقط في قائمة التشغيل الجماعية.")
     try:
         url = (f"https://www.youtube.com/watch?v={url}")
         results = VideosSearch(url, limit=1)
@@ -763,7 +763,7 @@ async def group_playlist(_,CallbackQuery):
     _check = await get_playlist(chat_id, videoid)
     title = title[:50]
     if _check:
-         return await CallbackQuery.message.reply_text(f"{Name}, Its already in the Playlist!")   
+         return await CallbackQuery.message.reply_text(f"{Name}, إنه موجود بالفعل في قائمة التشغيل!")   
     assis = {
         "videoid": videoid,
         "title": title,
@@ -771,10 +771,10 @@ async def group_playlist(_,CallbackQuery):
     }
     await save_playlist(chat_id, videoid, assis)
     Name = CallbackQuery.from_user.first_name
-    return await CallbackQuery.message.reply_text(f"Added to Group's Playlist by {Name}")
+    return await CallbackQuery.message.reply_text(f"تمت الإضافة إلى قائمة تشغيل المجموعة بواسطة {Name}")
   
 
-@Client.on_callback_query(filters.regex("playlist"))
+@Client.on_callback_query(filters.regex("الانتظار"))
 async def pla_playylistt(_,CallbackQuery):
     await CallbackQuery.answer()
     callback_data = CallbackQuery.data.strip()
@@ -789,7 +789,7 @@ async def pla_playylistt(_,CallbackQuery):
     _count = await get_note_names(userid)
     count = 0
     if not _count:
-        sex = await CallbackQuery.message.reply_text("**Welcome To Music's Playlist Feature.**\n\n**Generating Your Playlist In Database...Please wait.**")
+        sex = await CallbackQuery.message.reply_text("**مرحبًا بك في ميزة قائمة تشغيل الموسيقى.**\n\n**جاري إنشاء قائمة التشغيل الخاصة بك في قاعدة البيانات ... الرجاء الانتظار.**")
         await asyncio.sleep(2)
         await sex.delete()
     else:
@@ -800,7 +800,7 @@ async def pla_playylistt(_,CallbackQuery):
         if userid in SUDOERS:
             pass
         else:
-            return await CallbackQuery.message.reply_text("Sorry! You can only have 30 music in your playlist.")
+            return await CallbackQuery.message.reply_text("آسف!  يمكن أن يكون لديك 30 موسيقى فقط في قائمة التشغيل الجماعية.")
     try:
         url = (f"https://www.youtube.com/watch?v={url}")
         results = VideosSearch(url, limit=1)
@@ -812,7 +812,7 @@ async def pla_playylistt(_,CallbackQuery):
             return await CallbackQuery.message.reply_text(f"Some Error Occured.\n**Possible Reason:**{e}") 
     _check = await get_playlist(userid, videoid)
     if _check:
-         return await CallbackQuery.message.reply_text(f"{Name}, Its already in the Playlist!") 
+         return await CallbackQuery.message.reply_text(f"{Name}, إنه موجود بالفعل في قائمة التشغيل!") 
     title = title[:50]    
     assis = {
         "videoid": videoid,
@@ -820,7 +820,7 @@ async def pla_playylistt(_,CallbackQuery):
         "duration": duration,
     }
     await save_playlist(userid, videoid, assis)
-    return await CallbackQuery.message.reply_text(f"Added to {Name}'s Playlist")   
+    return await CallbackQuery.message.reply_text(f"تم الاضافة {Name}الى الانتظار")   
     
     
 
@@ -828,7 +828,7 @@ async def pla_playylistt(_,CallbackQuery):
 async def P_list(_,CallbackQuery):
     _playlist = await get_note_names(CallbackQuery.from_user.id)
     if not _playlist:
-        return await CallbackQuery.answer(f"You have no Personal Playlist on servers. Try adding musics in playlist.", show_alert=True)
+        return await CallbackQuery.answer(f"ليس لديك قائمة تشغيل شخصية على الخوادم.  حاول إضافة الموسيقى في قائمة التشغيل.", show_alert=True)
     else:
         j = 0
         await CallbackQuery.answer()
@@ -842,15 +842,15 @@ async def P_list(_,CallbackQuery):
             msg += f"    Duration- {duration} Min(s)\n\n"   
         await CallbackQuery.answer()
         await CallbackQuery.message.delete()     
-        m = await CallbackQuery.message.reply_text("Pasting Playlist to Bin")
+        m = await CallbackQuery.message.reply_text("لصق قائمة التشغيل في سلة المهملات")
         link = await paste(msg)
         preview = link + "/preview.png"
         print(link)
         urlxp = link + "/index.txt"
         user_id = CallbackQuery.from_user.id
         user_name = CallbackQuery.from_user.first_name
-        a2 = InlineKeyboardButton(text=f"Play {user_name[:17]}'s Playlist", callback_data=f'play_playlist {user_id}|personal')
-        a3 = InlineKeyboardButton(text=f"ᴄʜᴇᴄᴋ ᴘʟᴀʏʟɪsᴛ", url=urlxp)
+        a2 = InlineKeyboardButton(text=f"لتشغيل {user_name[:17]}'في الانتضار", callback_data=f'play_playlist {user_id}|personal')
+        a3 = InlineKeyboardButton(text=f"قائمة الانتضار", url=urlxp)
         key = InlineKeyboardMarkup(
             [
                 [
@@ -858,7 +858,7 @@ async def P_list(_,CallbackQuery):
                 ],
                 [
                     a3,
-                    InlineKeyboardButton(text="مسح", callback_data=f'close2')
+                    InlineKeyboardButton(text="قائمتي", callback_data=f'close2')
                 ]    
             ]
         )
@@ -884,7 +884,7 @@ async def G_list(_,CallbackQuery):
     user_id = CallbackQuery.from_user.id
     _playlist = await get_note_names(CallbackQuery.message.chat.id)
     if not _playlist:
-        return await CallbackQuery.answer(f"You have no Group Playlist on servers. Try adding musics in playlist.", show_alert=True)
+        return await CallbackQuery.answer(f"ليس لديك قائمة تشغيل جماعية على الخوادم.  حاول إضافة الموسيقى في قائمة التشغيل.", show_alert=True)
     else:
         await CallbackQuery.answer()
         j = 0
@@ -898,14 +898,14 @@ async def G_list(_,CallbackQuery):
             msg += f"    Duration- {duration} Min(s)\n\n"
         await CallbackQuery.answer()
         await CallbackQuery.message.delete()
-        m = await CallbackQuery.message.reply_text("Pasting Playlist to Bin")
+        m = await CallbackQuery.message.reply_text("لصق قائمة التشغيل في سلة المهملات")
         link = await paste(msg)
         preview = link + "/preview.png"
         urlxp = link + "/index.txt"
         user_id = CallbackQuery.from_user.id
         user_name = CallbackQuery.from_user.first_name
-        a1 = InlineKeyboardButton(text=f"Play Group's Playlist", callback_data=f'play_playlist {user_id}|group')
-        a3 = InlineKeyboardButton(text=f"ᴄʜᴇᴄᴋ ᴘʟᴀʏʟɪsᴛ", url=urlxp)
+        a1 = InlineKeyboardButton(text=f"قائمة تشغيل المجموعة", callback_data=f'play_playlist {user_id}|group')
+        a3 = InlineKeyboardButton(text=f"قائمة الانتضار", url=urlxp)
         key = InlineKeyboardMarkup(
             [
                 [
@@ -913,7 +913,7 @@ async def G_list(_,CallbackQuery):
                 ],
                 [
                     a3,
-                    InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data=f'close2')
+                    InlineKeyboardButton(text="مسح", callback_data=f'close2')
                 ]    
             ]
         )
@@ -941,12 +941,12 @@ async def cbgroupdel(_,CallbackQuery):
     await CallbackQuery.answer()
     _playlist = await get_note_names(CallbackQuery.message.chat.id)                                    
     if not _playlist:
-        return await CallbackQuery.message.reply_text("Group has no Playlist on Music's Server")
+        return await CallbackQuery.message.reply_text("لا تحتوي المجموعة على قائمة تشغيل على خادم الموسيقى")
     else:
         titlex = []
         for note in _playlist:
             await delete_playlist(CallbackQuery.message.chat.id, note)
-    await CallbackQuery.message.reply_text("Successfully deleted your Group's whole playlist")  
+    await CallbackQuery.message.reply_text("تم حذف قائمة التشغيل بأكملها الخاصة بمجموعتك بنجاح")  
     
     
 @Client.on_callback_query(filters.regex("cbdel"))
@@ -955,9 +955,9 @@ async def delplcb(_,CallbackQuery):
     await CallbackQuery.message.delete() 
     _playlist = await get_note_names(CallbackQuery.from_user.id)                                    
     if not _playlist:
-        return await CallbackQuery.message.reply_text("You have no Playlist on Music's Server")
+        return await CallbackQuery.message.reply_text("ليس لديك قائمة تشغيل على خادم الموسيقى")
     else:
         titlex = []
         for note in _playlist:
             await delete_playlist(CallbackQuery.from_user.id, note)
-    await CallbackQuery.message.reply_text("Successfully deleted your whole playlist")
+    await CallbackQuery.message.reply_text("تم حذف قائمة التشغيل بالكامل بنجاح")
