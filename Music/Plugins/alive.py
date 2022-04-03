@@ -42,10 +42,10 @@ async def _human_time_duration(seconds):
     return ', '.join(parts)
 
 
-KYY_IMG = "https://telegra.ph/file/2b610c918dec590d2777b.jpg"
+KYY_IMG = "https://telegra.ph//file/5cca85f20e03f361d94e9.jpg"
 
 
-@app.on_message(filters.command(["alive", "alive@Tg_Vc_00_Bot"]))
+@app.on_message(filters.command(["فحص", "alive@Tg_Vc_00_Bot"]))
 async def alive(client, message):
     current_time = datetime.utcnow()
     uptime_sec = (current_time - START_TIME).total_seconds()
@@ -53,20 +53,20 @@ async def alive(client, message):
     await client.send_photo(message.chat.id,
         photo=f"{KYY_IMG}",
         caption=f"""**Holla {message.from_user.mention()}.** \n
-✘ **I'm Working Properly** \n
-✘ **Uptime : `{uptime}`** \n
-✘ **Pyrogram Version : `{pyrover}`** \n
-✘ **PyTgCalls Version: `{pytover.__version__}`** \n
-✘ **Using New Version** \n
-**Thanks For Using Me 🔥**""",
+✘ **انا اعمل بشكل جيد** \n
+✘ **وقت التشغيل : `{uptime}`** \n
+✘ **نسخة بيروجرام : `{pyrover}`** \n
+✘ **نسخة السورس: `{pytover.__version__}`** \n
+✘ **باستخدام الإصدار الجديد** \n
+**شكرا لاستخدامك لي 🔥**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "sᴜᴘᴘᴏʀᴛ", url=f"t.me/{GROUP}"
+                        "المطور", url=f"t.me/{GROUP}"
                     ),
                     InlineKeyboardButton(
-                        "ᴜᴘᴅᴀᴛᴇs", url=f"t.me/{CHANNEL}"
+                        "قناة المطور", url=f"t.me/{CHANNEL}"
                     )
                 ]
             ]
