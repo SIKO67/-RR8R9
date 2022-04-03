@@ -201,7 +201,7 @@ confirm_group_keyboard = InlineKeyboardMarkup(
 )
 
 close_keyboard = InlineKeyboardMarkup(
-    [[InlineKeyboardButton("ᴛᴜᴛᴜᴘ", callback_data="close2")]]
+    [[InlineKeyboardButton("مسح", callback_data="close2")]]
 )
 
 play_list_keyboard = InlineKeyboardMarkup( 
@@ -356,22 +356,22 @@ def private_panel():
 def setting_markup():
     buttons = [
         [
-            InlineKeyboardButton(text="🔈 ᴀᴜᴅɪᴏ ǫᴜᴀʟɪᴛʏ", callback_data="AQ"),
-            InlineKeyboardButton(text="🎚 ᴀᴜᴅɪᴏ ᴠᴏʟᴜᴍᴇ", callback_data="AV"),
+            InlineKeyboardButton(text="• جَۅٛدَةَ اެݪصَۅٛتَ", callback_data="AQ"),
+            InlineKeyboardButton(text="• مَسِتَۅٛىِ اެݪصَۅٛتَ", callback_data="AV"),
         ],
         [
             InlineKeyboardButton(
-                text="👥 ᴀᴜᴛʜᴏʀɪᴢᴇᴅ ᴜsᴇʀs", callback_data="AU"
+                text="👥 اެݪمَسِتخِدمۅن اެلمَۅثَۅقۅن", callback_data="AU"
             ),
             InlineKeyboardButton(
-                text="💻 ᴅᴀsʜʙᴏᴀʀᴅ", callback_data="Dashboard"
+                text="💻 ݪۅٛحَةَ اެݪقِيَاެدَةَ", callback_data="Dashboard"
             ),
         ],
         [
-            InlineKeyboardButton(text="✖️ ᴄʟᴏsᴇ", callback_data="close"),
+            InlineKeyboardButton(text="• مَسِحَ", callback_data="close"),
         ],
     ]
-    return f"🔧  **{BOT_NAME} Settings**", buttons
+    return f"🔧  **{BOT_NAME}• الاعدادات**", buttons
 
 
 def volmarkup():
@@ -382,21 +382,21 @@ def volmarkup():
             )
         ],
         [
-            InlineKeyboardButton(text="🔈 ʟᴏᴡ ᴠᴏʟ", callback_data="LV"),
-            InlineKeyboardButton(text="🔉 ᴍᴇᴅɪᴜᴍ ᴠᴏʟ", callback_data="MV"),
+            InlineKeyboardButton(text="• حَجَمَ مَنِخِفَصَ", callback_data="LV"),
+            InlineKeyboardButton(text="• حَجَمَ مَتَۅٛسِطَ", callback_data="MV"),
         ],
         [
-            InlineKeyboardButton(text="🔊 ʜɪɢʜ ᴠᴏʟ", callback_data="HV"),
-            InlineKeyboardButton(text="🔈 ᴀᴍᴘʟɪғɪᴇᴅ ᴠᴏʟ", callback_data="VAM"),
+            InlineKeyboardButton(text="• حَجَمَ مَࢪتَفَعَ", callback_data="HV"),
+            InlineKeyboardButton(text="• حَجَمَ مَࢪتَفَعَ جَدَاެً", callback_data="VAM"),
         ],
         [
             InlineKeyboardButton(
-                text="🔽 ᴄᴜsᴛᴏᴍ ᴠᴏʟᴜᴍᴇ 🔽", callback_data="Custommarkup"
+                text="🔽 حَجمَ مَخِصص 🔽", callback_data="Custommarkup"
             )
         ],
-        [InlineKeyboardButton(text="🔙 ʙᴀᴄᴋ", callback_data="settingm")],
+        [InlineKeyboardButton(text="🔙 ࢪجَۅٛعَ", callback_data="settingm")],
     ]
-    return f"🔧  **{BOT_NAME} Settings**", buttons
+    return f"🔧  **{BOT_NAME} • الاعدادات**", buttons
 
 
 def custommarkup():
@@ -413,40 +413,40 @@ def custommarkup():
             InlineKeyboardButton(text="+50", callback_data="PFZ"),
             InlineKeyboardButton(text="-50", callback_data="MFZ"),
         ],
-        [InlineKeyboardButton(text="🔼 ᴄᴜsᴛᴏᴍ ᴠᴏʟᴜᴍᴇ 🔼", callback_data="AV")],
+        [InlineKeyboardButton(text="🔼 حَجمَ مَخِصص 🔼", callback_data="AV")],
     ]
-    return f"🔧  **{BOT_NAME} Settings**", buttons
+    return f"🔧  **{BOT_NAME} • الاعدادات**", buttons
 
 
 def usermarkup():
     buttons = [
         [
-            InlineKeyboardButton(text="👥 ᴇᴠʀʏᴏɴᴇ", callback_data="EVE"),
-            InlineKeyboardButton(text="🙍 ᴀᴅᴍɪɴs", callback_data="AMS"),
+            InlineKeyboardButton(text="👥 اެݪمَسِتخِدمۅن اެلمَۅثَۅقۅن", callback_data="EVE"),
+            InlineKeyboardButton(text="🙍 اެݪمَشِࢪفَۅٛنِ فَقِطَ", callback_data="AMS"),
         ],
         [
             InlineKeyboardButton(
-                text="📋 ᴀᴜᴛʜᴏʀɪᴢᴇᴅ ᴜsᴇʀ ʟɪsᴛ", callback_data="USERLIST"
+                text="📋 اެݪمَسِتخِدمۅن اެلمَۅثَۅقۅن", callback_data="USERLIST"
             )
         ],
-        [InlineKeyboardButton(text="🔙 ʙᴀᴄᴋ", callback_data="settingm")],
+        [InlineKeyboardButton(text="🔙 ࢪجَۅٛعَ", callback_data="settingm")],
     ]
-    return f"🔧  **{BOT_NAME} Settings**", buttons
+    return f"🔧  **{BOT_NAME} • الاعدادات**", buttons
 
 
 def dashmarkup():
     buttons = [
         [
-            InlineKeyboardButton(text="✔️ ᴜᴘᴛɪᴍᴇ", callback_data="UPT"),
-            InlineKeyboardButton(text="💾 ʀᴀᴍ", callback_data="RAT"),
+            InlineKeyboardButton(text="✔️ الاستخدام", callback_data="UPT"),
+            InlineKeyboardButton(text="💾 الرام", callback_data="RAT"),
         ],
         [
-            InlineKeyboardButton(text="💻 ᴄᴘᴜ", callback_data="CPT"),
-            InlineKeyboardButton(text="💽 ᴅɪsᴋ", callback_data="DIT"),
+            InlineKeyboardButton(text="💻 المعالج", callback_data="CPT"),
+            InlineKeyboardButton(text="💽 القرص", callback_data="DIT"),
         ],
-        [InlineKeyboardButton(text="🔙 ʙᴀᴄᴋ", callback_data="settingm")],
+        [InlineKeyboardButton(text="🔙 ࢪجَۅٛعَ", callback_data="settingm")],
     ]
-    return f"🔧  **{BOT_NAME} Settings**", buttons
+    return f"🔧  **{BOT_NAME} • الاعدادات**", buttons
 
 
 stats1 = InlineKeyboardMarkup(
@@ -461,10 +461,10 @@ stats1 = InlineKeyboardMarkup(
         ],
         [
             InlineKeyboardButton(
-                text="ʙᴏᴛ sᴛᴀᴛs", callback_data=f"bot_stats"
+                text="• احصائيات البوت", callback_data=f"bot_stats"
             ),
             InlineKeyboardButton(
-                text="ᴀssɪsᴛᴀɴᴛ sᴛᴀᴛs", callback_data=f"assis_stats"
+                text="• احصائيات المساعد", callback_data=f"assis_stats"
             )
         ],
     ]
@@ -482,10 +482,10 @@ stats2 = InlineKeyboardMarkup(
         ],
         [
             InlineKeyboardButton(
-                text="ʙᴏᴛ sᴛᴀᴛs", callback_data=f"bot_stats"
+                text="• احصائيات البوت", callback_data=f"bot_stats"
             ),
             InlineKeyboardButton(
-                text="ᴀssɪsᴛᴀɴᴛ sᴛᴀᴛs", callback_data=f"assis_stats"
+                text="• احصائيات المساعد", callback_data=f"assis_stats"
             )
         ],
     ]
@@ -503,10 +503,10 @@ stats3 = InlineKeyboardMarkup(
         ],
         [
             InlineKeyboardButton(
-                text="ʙᴏᴛ sᴛᴀᴛs", callback_data=f"bot_stats"
+                text="• احصائيات البوت", callback_data=f"bot_stats"
             ),            
             InlineKeyboardButton(
-                text="ᴀssɪsᴛᴀɴᴛ sᴛᴀᴛs", callback_data=f"assis_stats"
+                text="• احصائيات المساعد", callback_data=f"assis_stats"
             )
         ],
     ]
