@@ -52,7 +52,7 @@ async def alive(client, message):
     uptime = await _human_time_duration(int(uptime_sec))
     await client.send_photo(message.chat.id,
         photo=f"{KYY_IMG}",
-        caption=f"""**Holla {message.from_user.mention()}.** \n
+        caption=f"""**ههلا حب {message.from_user.mention()}.** \n
 ✘ **انا اعمل بشكل جيد** \n
 ✘ **وقت التشغيل : `{uptime}`** \n
 ✘ **نسخة بيروجرام : `{pyrover}`** \n
@@ -63,7 +63,7 @@ async def alive(client, message):
             [
                 [
                     InlineKeyboardButton(
-                        "المطور", url=f"t.me/{GROUP}"
+                        "المطور", url=f"t.me/rr8r9"
                     ),
                     InlineKeyboardButton(
                         "قناة المطور", url=f"t.me/{CHANNEL}"
