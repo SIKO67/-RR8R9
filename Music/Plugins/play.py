@@ -329,7 +329,7 @@ Saya perlu menjadi admin dengan beberapa izin:
             if (not path.isfile(file_name))
             else file_name,
         )
-        title = الصوت المحدد من Telegram"
+        title = "Audio Yang Dipilih Dari Telegram"
         link = "https://t.me/NastyProject"
         thumb = "cache/Audio.png"
         videoid = "smex1"
