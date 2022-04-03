@@ -132,7 +132,7 @@ async def pausevc(_, CallbackQuery):
             user_name = CallbackQuery.from_user.first_name
             rpk = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
             await CallbackQuery.message.reply(
-                f"🎧 Lagu Dijeda oleh {rpk}!", reply_markup=play_keyboard
+                f"🎧 تم إيقاف الأغنية مؤقتًا {rpk}!", reply_markup=play_keyboard
             )
             await CallbackQuery.message.delete()
         else:
@@ -584,8 +584,8 @@ Personal Playlist Playing."""
             await CallbackQuery.message.delete()
             logger_text=f"""بدء قائمة التشغيل
 
-Group :- {chat_title}
-By :- {Name}
+الكروب :- {chat_title}
+طلب من :- {Name}
 
 Group Playlist Playing."""
             await ASS_ACC.send_message(LOG_GROUP_ID, f"{logger_text}", disable_web_page_preview=True)
@@ -660,7 +660,7 @@ Group Playlist Playing."""
                                 taken = "00:00"
                             size = d['_total_bytes_str']
                             mystic.edit(f"**📥 تحميل {title[:50]}.....**\n\n**📚 حجم الملف:** {size}\n**⚡ الوقت المستغرق:** {taken} sec\n\n**📑 تحويل ملف النقرات**")
-                            print(f"[{videoid}] تحميل| انقضى: {taken} seconds")  
+                            print(f"[{videoid}] تحميل| انقضى: {taken} ثواني")  
                     loop = asyncio.get_event_loop()
                     xx = await loop.run_in_executor(None, download, url, my_hook)
                     file = await convert(xx)
