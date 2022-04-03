@@ -227,26 +227,26 @@ Saya perlu menjadi admin dengan beberapa izin:
         return
     if not a.can_manage_voice_chats:
         await message.reply_text(
-            "Saya tidak memiliki izin yang diperlukan untuk melakukan tindakan ini."
-            + "\n❌ MENGELOLA OBROLAN SUARA"
+            "انطيني هاي الصلاحية حتى اكدر اشغل "
+            + "\n🧑‍💻 إدارة المحادثات الصوتية"
         )
         return
     if not a.can_delete_messages:
         await message.reply_text(
-            "Saya tidak memiliki izin yang diperlukan untuk melakukan tindakan ini."
-            + "\n❌ HAPUS PESAN"
+            "انطيني هاي الصلاحية حتى اكدر اشغل ."
+            + "\n🧑‍💻 حذف رسائل"
         )
         return
     if not a.can_invite_users:
         await message.reply_text(
-            "I don't have the required permission to perform this action."
-            + "\n❌ UNDANG PENGGUNA MELALUI LINK"
+            "انطيني هاي الصلاحية حتى اكدر اشغل ."
+            + "\n🧑‍💻 اضافة مستخدمين"
         )
         return
     if not a.can_restrict_members:
         await message.reply_text(
-            "Saya tidak memiliki izin yang diperlukan untuk melakukan tindakan ini."
-            + "\n❌ BAN PENGGUNA"
+            "انطيني هاي الصلاحية حتى اكدر اشغل ."
+            + "\n🧑‍💻 حظر المستخدمين"
         )
         return
     try: 
@@ -274,8 +274,8 @@ Saya perlu menjadi admin dengan beberapa izin:
         except Exception as e:
             return await message.reply_text(
                     f"""
-**Asisten Gagal Bergabung**
-**Alasan**:{e}
+**فشل الانضمام إلى المساعد**
+**السبب**:{e}
 """
                 )
     except UserAlreadyParticipant:
@@ -283,8 +283,8 @@ Saya perlu menjadi admin dengan beberapa izin:
     except Exception as e:
         return await message.reply_text(
                     f"""
-**Asisten Gagal Bergabung**
-**Alasan**:{e}
+**فشل الانضمام إلى المساعد**
+**السبب**:{e}
 """
             )
     audio = (
@@ -308,10 +308,10 @@ Saya perlu menjadi admin dengan beberapa izin:
         if duration > DURATION_LIMIT:
             return await mystic.edit_text(
                 f"""
-**Kesalahan Durasi**
+**خطأ المدة**
 
-**Durasi yang Diizinkan: **{DURATION_LIMIT}
-**Durasi yang Diterima:** {duration}
+**المدة المسموح بها: **{DURATION_LIMIT}
+**المدة المقبولة:** {duration}
 """
             )
         file_name = (
@@ -357,16 +357,16 @@ Saya perlu menjadi admin dengan beberapa izin:
         if smex > DURATION_LIMIT:
             return await mystic.edit_text(
                 f"""
-**Kesalahan Durasi**
+**خطأ المدة**
 
-**Durasi yang Diizinkan:** {DURATION_LIMIT}
-**Durasi yang Diterima:** {duration}
+**المدة المسموح بها:** {DURATION_LIMIT}
+** المدة المقبولة:** {duration}
 """
             )
         if duration == "None":
-            return await mystic.edit_text("Maaf! Video langsung tidak Didukung")
+            return await mystic.edit_text("آسف!  لا يتم دعم الفيديو المباشر")
         if views == "None":
-            return await mystic.edit_text("Maaf! Video langsung tidak Didukung")
+            return await mystic.edit_text("آسف!  لا يتم دعم الفيديو المباشر")
         semxbabes = f"Downloading {title[:50]}"
         await mystic.edit(semxbabes)
         theme = random.choice(themes)
@@ -588,7 +588,7 @@ async def startyuplay(_, CallbackQuery):
         )
     if CallbackQuery.from_user.id != int(user_id):
         return await CallbackQuery.answer(
-            "This is not for you! Search You Own Song nigga", show_alert=True
+            "لاتبعبص ، هاي مو الك", show_alert=True
         )
     await CallbackQuery.message.delete()
     checking = f"[{CallbackQuery.from_user.first_name}](tg://user?id={userid})"
@@ -598,10 +598,10 @@ async def startyuplay(_, CallbackQuery):
     if smex > DURATION_LIMIT:
         await CallbackQuery.message.reply_text(
             f"""
-**Kesalahan Durasi**
+**خطأ المدة**
 
-**Durasi yang Diizinkan: {DURATION_LIMIT}**
-**Durasi yang Diteriman:** {duration}
+**المدة المسموح بها: {DURATION_LIMIT}**
+**المدة المقبولة:** {duration}
 """
         )
         return
@@ -761,7 +761,7 @@ async def popat(_,CallbackQuery):
     except Exception as e:
         return await CallbackQuery.message.edit(f"Terjadi Kesalahan\n**Kemungkinan alasannya adalah**:{e}")       
     if CallbackQuery.from_user.id != int(user_id):
-        return await CallbackQuery.answer("This is not for you! Search You Own Song", show_alert=True)
+        return await CallbackQuery.answer("لاتبعبص ، هاي مو الك", show_alert=True)
     i=int(id)
     query = str(query)
     try:
