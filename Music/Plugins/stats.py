@@ -40,7 +40,7 @@ async def bot_sys_stats():
     return stats
 
 
-@app.on_message(filters.command("system") & ~filters.edited)
+@app.on_message(filters.command("الاحصائيات") & ~filters.edited)
 async def gstats(_, message):
     start = datetime.now()
     try:
@@ -53,9 +53,9 @@ async def gstats(_, message):
     end = datetime.now()
     resp = (end - start).microseconds / 1000
     smex = f"""
-[•]<u>**General Stats**</u>
+[•]<u>**احصائيات عامة**</u>
     
-Ping: `⚡{resp} ms`
+البنك: `⚡{resp} ميلي ثانية`
 {uptime}
     """
     await response.edit_text(smex, reply_markup=stats1)
@@ -70,7 +70,7 @@ Ping: `⚡{resp} ms`
 async def stats_markup(_, CallbackQuery):
     command = CallbackQuery.matches[0].group(1)
     if command == "sys_stats":
-        await CallbackQuery.answer("Getting System Stats...", show_alert=True)
+        await CallbackQuery.answer("الحصول على احصائيات النظام...", show_alert=True)
         sc = platform.system()
         arch = platform.machine()
         ram = (
@@ -79,20 +79,20 @@ async def stats_markup(_, CallbackQuery):
         bot_uptime = int(time.time() - boottime)
         uptime = f"{get_readable_time((bot_uptime))}"
         smex = f"""
-[•]<u>**System Stats**</u>
+[•]<u>**احصائيات النظام**</u>
 
-**Uptime:** {uptime}
-**System Proc:** Online
-**Platform:** {sc}
-**Architecture:** {arch}
-**Ram:** {ram}
-**PyTgCalls Version:** {pytover.__version__}
-**Python Ver:** {pyver.split()[0]}
-**Pyrogram Ver:** {pyrover}"""
+**مدة التشغيل:** {uptime}
+**نظام Proc:** Online
+**برنامج:** {sc}
+**البنية:** {arch}
+**الرام:** {ram}
+**نسخة السورس:** {pytover.__version__}
+**عرض بايثون:** {pyver.split()[0]}
+**عرض بيروجرام:** {pyrover}"""
         await CallbackQuery.edit_message_text(smex, reply_markup=stats2)
     if command == "sto_stats":
         await CallbackQuery.answer(
-            "Getting Storage Stats...", show_alert=True
+            "الحصول على إحصائيات التخزين...", show_alert=True
         )
         hdd = psutil.disk_usage("/")
         total = hdd.total / (1024.0 ** 3)
@@ -102,14 +102,14 @@ async def stats_markup(_, CallbackQuery):
         free = hdd.free / (1024.0 ** 3)
         free = str(free)
         smex = f"""
-[•]<u>**Storage Stats**</u>
+[•]<u>**احصائيات التخزين**</u>
 
-**Storage Avail:** {total[:4]} GiB 
-**Storage Used:** {used[:4]} GiB
-**Storage Left:** {free[:4]} GiB"""
+**توفر التخزين:** {total[:4]} GiB 
+**التخزين المستخدم:** {used[:4]} GiB
+**التخزين المتبقي:** {free[:4]} GiB"""
         await CallbackQuery.edit_message_text(smex, reply_markup=stats3)
     if command == "bot_stats":
-        await CallbackQuery.answer("Getting Bot Stats...", show_alert=True)
+        await CallbackQuery.answer("الحصول على إحصائيات البوت...", show_alert=True)
         served_chats = []
         chats = await get_served_chats()
         for chat in chats:
@@ -125,19 +125,19 @@ async def stats_markup(_, CallbackQuery):
             except Exception:
                 continue
         smex = f"""
-[•]<u>**Bot Stats**</u>
+[•]<u>**احصائيات البوت**</u>
 
-**Modules Loaded:** {modules_loaded}
-**GBanned Users:** {blocked}
-**Sudo Users:** {j}
-**Served Chats:** {len(served_chats)}"""
+**الوحدات المحملة:** {modules_loaded}
+**عدد المحظورين:** {blocked}
+**عدد المطورين:** {j}
+**عدد الكروبات:** {len(served_chats)}"""
         await CallbackQuery.edit_message_text(smex, reply_markup=stats4)
     if command == "assis_stats":
         await CallbackQuery.answer(
-            "Getting Assistant Stats...", show_alert=True
+            "الحصول على إحصائيات المساعد...", show_alert=True
         )
         await CallbackQuery.edit_message_text(
-            "Getting Assistant Stats.. Please Wait...", reply_markup=stats6
+            "الحصول على إحصائيات المساعد ...", reply_markup=stats6
         )
         groups_ub = channels_ub = bots_ub = privates_ub = total_ub = 0
         async for i in userbot.iter_dialogs():
@@ -153,26 +153,26 @@ async def stats_markup(_, CallbackQuery):
                 privates_ub += 1
 
         smex = f"""
-[•]<u>Assistant Stats</u>
+[•]<u>احصائيات المساعد</u>
 
-**Dialogs:** {total_ub}
-**Groups:** {groups_ub} 
-**Channels:** {channels_ub} 
-**Bots:** {bots_ub}
-**Users:** {privates_ub}"""
+**الحوارات:** {total_ub}
+**الكروبات:** {groups_ub} 
+**القنوات:** {channels_ub} 
+**البوتات:** {bots_ub}
+**المستخدمين:** {privates_ub}"""
         await CallbackQuery.edit_message_text(smex, reply_markup=stats5)
     if command == "gen_stats":
         start = datetime.now()
         uptime = await bot_sys_stats()
         await CallbackQuery.answer(
-            "Getting General Stats...", show_alert=True
+            "الحصول على الإحصائيات العامة...", show_alert=True
         )
         end = datetime.now()
         resp = (end - start).microseconds / 1000
         smex = f"""
-[•]<u>General Stats</u>
+[•]<u>احصائيات عامة</u>
 
-**Ping:** `⚡{resp} ms`
+**البنك:** `⚡{resp} ملي ثانية`
 {uptime}"""
         await CallbackQuery.edit_message_text(smex, reply_markup=stats1)
     if command == "wait_stats":
