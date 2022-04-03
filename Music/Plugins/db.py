@@ -22,7 +22,7 @@ async def gcast(_, message: Message):
             try:
                 await USER.send_message(dialog.chat.id, lmao)
                 sent = sent+1
-                await wtf.edit(f"يحري الاذاعة \n\nمرسلة إلى: {sent} دردشة \nفشل الإرسال إلى: {failed} دردشة")
+                await wtf.edit(f"يجري الاذاعة \n\nمرسلة إلى: {sent} دردشة \nفشل الإرسال إلى: {failed} دردشة")
                 await asyncio.sleep(0.7)
             except:
                 failed=failed+1
