@@ -63,8 +63,7 @@ pstart_markup = InlineKeyboardMarkup(
             InlineKeyboardButton("• MᥲᎥꪀƚᥲᎥꪀᥱძ ხy", url=f"https://t.me/RR3R2"),
         [
             InlineKeyboardButton("🌐 sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ 🌐", url="https://github.com/muhammadrizky16/KyyMusic"),
-        ],
-       
+        ], 
     ]
 )
 welcome_captcha_group = 2
