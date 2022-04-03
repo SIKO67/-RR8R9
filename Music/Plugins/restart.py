@@ -8,7 +8,7 @@ from Music.MusicUtilities.database.queue import get_active_chats, remove_active_
 from pyrogram import filters
 
 
-@app.on_message(filters.command("restart") & filters.user(SUDOERS))
+@app.on_message(filters.command("اعادة تشغيل") & filters.user(SUDOERS))
 async def theme_func(_, message):
     A = "downloads"
     B = "raw_files"
@@ -27,7 +27,7 @@ async def theme_func(_, message):
         try:
             await app.send_message(
                 x,
-                "Music has just restarted herself. Sorry for the issues.\n\nStart playing after 10-15 seconds again.",
+                "🧑‍💻اسف ، قام احد مطورين البوت باعادة تشغيلي للتو.\n\nجرب تشغيل اي اغنية الان .",
             )
         except Exception:
             pass
