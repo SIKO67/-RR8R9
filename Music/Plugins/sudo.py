@@ -6,7 +6,7 @@ from pyrogram import filters
 from pyrogram.types import Message
 
 
-@app.on_message(filters.command("رفع مطور") & filters.user(OWNER))
+@app.on_message(filters.command("مطور") & filters.user(OWNER))
 async def useradd(_, message: Message):
     if not message.reply_to_message:
         if len(message.command) != 2:
@@ -44,7 +44,7 @@ async def useradd(_, message: Message):
     return
 
 
-@app.on_message(filters.command("تنزيل مطور") & filters.user(OWNER))
+@app.on_message(filters.command("حذف") & filters.user(OWNER))
 async def userdel(_, message: Message):
     if not message.reply_to_message:
         if len(message.command) != 2:
