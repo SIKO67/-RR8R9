@@ -33,16 +33,16 @@ from Music.MusicUtilities.helpers.filters import command
 from Music.MusicUtilities.helpers.decorators import errors
 from Music.MusicUtilities.database.functions import start_restart_stage
 
-@Client.on_message(command("update") & filters.user(OWNER))
+@Client.on_message(command("تحديث السورس") & filters.user(OWNER))
 @errors
 async def update(_, message: Message):
     m = subprocess.check_output(["git", "pull"]).decode("UTF-8")
     if str(m[0]) != "A":
-        x = await message.reply_text("Ditemukan Pembaruan!  Mendorong Sekarang.")
+        x = await message.reply_text("بواسطة مطور فريدوم يتم التحديث الان ....")
         await start_restart_stage(x.chat.id, x.message_id)
         os.execvp("python3", ["python3", "-m", "Music"])
     else:
-        await message.reply_text("Sudah Up To Date Dengan Versi Terbaru")
+        await message.reply_text("البوت محدث احدث اصدار بواسطة المطور @rr8r9")
         
 async def aexec(code, client, message):
     exec(
