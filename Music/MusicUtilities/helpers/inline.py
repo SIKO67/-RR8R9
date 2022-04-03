@@ -361,10 +361,10 @@ def setting_markup():
         ],
         [
             InlineKeyboardButton(
-                text="👥 المستخدمون الموثوقون ", callback_data="AU"
+                text="• المستخدمون الموثوقون ", callback_data="AU"
             ),
             InlineKeyboardButton(
-                text="💻 لوحة التحكم", callback_data="Dashboard"
+                text="• لوحة التحكم", callback_data="Dashboard"
             ),
         ],
         [
@@ -421,12 +421,12 @@ def custommarkup():
 def usermarkup():
     buttons = [
         [
-            InlineKeyboardButton(text="👥 المستخدمون الموثوقون", callback_data="EVE"),
-            InlineKeyboardButton(text="🙍 المشرفون فقط", callback_data="AMS"),
+            InlineKeyboardButton(text="• المستخدمون الموثوقون", callback_data="EVE"),
+            InlineKeyboardButton(text="• المشرفون فقط", callback_data="AMS"),
         ],
         [
             InlineKeyboardButton(
-                text="📋 المستخدمون الموثوقون", callback_data="USERLIST"
+                text="• المستخدمون الموثوقون", callback_data="USERLIST"
             )
         ],
         [InlineKeyboardButton(text="🔙 ࢪجَۅٛعَ", callback_data="settingm")],
@@ -437,12 +437,12 @@ def usermarkup():
 def dashmarkup():
     buttons = [
         [
-            InlineKeyboardButton(text="✔️ الاستخدام", callback_data="UPT"),
-            InlineKeyboardButton(text="💾 الرام", callback_data="RAT"),
+            InlineKeyboardButton(text="• الاستخدام", callback_data="UPT"),
+            InlineKeyboardButton(text="• الرام", callback_data="RAT"),
         ],
         [
-            InlineKeyboardButton(text="💻 المعالج", callback_data="CPT"),
-            InlineKeyboardButton(text="💽 القرص", callback_data="DIT"),
+            InlineKeyboardButton(text="• المعالج", callback_data="CPT"),
+            InlineKeyboardButton(text="• القرص", callback_data="DIT"),
         ],
         [InlineKeyboardButton(text="🔙 ࢪجَۅٛعَ", callback_data="settingm")],
     ]
