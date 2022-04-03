@@ -168,7 +168,7 @@ async def vplay(c: Client, message: Message):
         if replied.video or replied.document:
             what = "Audio Searched"
             await LOG_CHAT(message, what)
-            loser = await replied.reply("📥 **تحميل الفيديو...**")
+            loser = await replied.reply(" **❤️‍🔥 يَتمَ اެݪتشغِيݪ اެلانِ...**")
             dl = await replied.download()
             link = replied.link
             if len(message.command) < 2:
@@ -197,12 +197,12 @@ async def vplay(c: Client, message: Message):
                 await message.reply_photo(
                     photo="cache/IMG_20211230_211039_090.jpg",
                     caption=f"""
-💡 **Trek ditambahkan ke antrian**
+🧑‍💻 **تمت إضافة المسارات إلى قائمة الانتظار**
 
-🏷 **Nama:** [{songname[:999]}]({link})
-🎧 **Atas permintaan:** {requester}
+❤️‍🔥 **الاسم:** [{songname[:999]}]({link})
+❤️‍🔥 **طلب من:** {requester}
 
-#️⃣ **Posisi antrian** {pos}
+#️⃣ **قائمة الانتضار** {pos}
 """,
                     reply_markup=keyboard,
                 )
@@ -228,12 +228,11 @@ async def vplay(c: Client, message: Message):
                 await message.reply_photo(
                     photo="cache/IMG_20211230_211039_090.jpg",
                     caption=f"""
-▶️ **Streaming video dimulai**
+▶️ **تم التشغيل بنجاح**
 
-🏷 **Nama:** [{songname[:999]}]({link})
-🎧 **Atas permintaan:** {requester}
+❤️‍🔥 **الاسم:** [{songname[:999]}]({link})
+❤️‍🔥 **طلب من:** {requester}
 
-💬 **Diputar di:** {message.chat.title}
 """,
                     reply_markup=keyboard,
                 )
@@ -241,7 +240,7 @@ async def vplay(c: Client, message: Message):
     else:
         if len(message.command) < 2:
             await message.reply(
-                "» Balas ke **file video** atau **berikan sesuatu untuk ditelusuri.**"
+                "» الرد على **مقطع فيديو** او **اعطاء اسم فيديو للبحث.**"
             )
         else:
             what = "Query Given"
@@ -269,7 +268,7 @@ async def vplay(c: Client, message: Message):
                         await message.reply_photo(
                             photo="cache/IMG_20211230_211039_090.jpg",
                             caption=f"""
-❤️‍🔥 **تمت إضافة المسارات إلى قائمة الانتظار**
+🧑‍💻 **تمت إضافة المسارات إلى قائمة الانتظار**
 
 ❤️‍🔥 **الاسم:** [{songname[:999]}]({url})
 ❤️‍🔥 **المدة:** {duration}
@@ -304,7 +303,6 @@ async def vplay(c: Client, message: Message):
 ❤️‍🔥 **المدة:** {duration}
 ❤️‍🔥 **طلب من:** {requester}
 
-❤️‍🔥 **تم تشغيلها:** {message.chat.title}
 """,
                                 reply_markup=keyboard,
                             )
@@ -321,7 +319,7 @@ async def playlist(client, m: Message):
         if len(chat_queue) == 1:
             await m.delete()
             await m.reply(
-                f"**🎧 الان العب:** \n[{chat_queue[0][0]}]({chat_queue[0][2]}) | `{chat_queue[0][3]}`",
+                f"**🎧 الان يشغل:** \n[{chat_queue[0][0]}]({chat_queue[0][2]}) | `{chat_queue[0][3]}`",
                 disable_web_page_preview=True,
             )
         else:
