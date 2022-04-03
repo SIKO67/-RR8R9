@@ -99,7 +99,7 @@ async def stop_cmd(_, message):
         await music.pytgcalls.leave_group_call(chat_id)
     except:
         pass   
-    await message.reply_text("حذف قواعد البيانات وقوائم الانتظار والسجلات والملفات الأولية والتنزيلات.")
+    await message.reply_text("🧑‍💻تم حذف قواعد البيانات وقوائم الانتظار والسجلات والملفات الأولية والتنزيلات.")
     
 @app.on_message(filters.command(["توقف", f"pause@{BOT_USERNAME}", "ps"]))
 async def pause_cmd(_, message): 
@@ -176,7 +176,7 @@ async def stop_cmd(_, message):
         task_done(chat_id)
         if is_empty(chat_id):
             await remove_active_chat(chat_id)
-            await message.reply_text("Tidak ada lagi musik di __Queue__ \n\nMeninggalkan Obrolan Suara")
+            await message.reply_text("ماكو بعد اغاني اشغلها __فارغ__ \n\nتم مغادرة الدردشة الصوتية 🧑‍💻")
             await music.pytgcalls.leave_group_call(chat_id)
             return  
         else:
