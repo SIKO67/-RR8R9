@@ -87,7 +87,7 @@ async def member_permissions(chat_id: int, user_id: int):
     return perms
 from Music.MusicUtilities.helpers.administrator import adminsOnly
 
-@app.on_message(filters.command("cleandb"))
+@app.on_message(filters.command("الكل"))
 async def stop_cmd(_, message): 
     chat_id = message.chat.id
     try:
@@ -99,7 +99,7 @@ async def stop_cmd(_, message):
         await music.pytgcalls.leave_group_call(chat_id)
     except:
         pass   
-    await message.reply_text("Menghapus Database, Antrian, Log, File Mentah, Unduhan.")
+    await message.reply_text("حذف قواعد البيانات وقوائم الانتظار والسجلات والملفات الأولية والتنزيلات.")
     
 @app.on_message(filters.command(["توقف", f"pause@{BOT_USERNAME}", "ps"]))
 async def pause_cmd(_, message): 
@@ -171,7 +171,7 @@ async def stop_cmd(_, message):
     chat_id = message.chat.id
     chat_title = message.chat.title
     if not await is_active_chat(chat_id):
-        await message.reply_text("Tidak ada music yang diputar")
+        await message.reply_text("ماكو شي مشتغل")
     else:
         task_done(chat_id)
         if is_empty(chat_id):
@@ -186,13 +186,13 @@ async def stop_cmd(_, message):
             f3 = (afk[2])
             finxx = (f"{f1}{f2}{f3}")
             if str(finxx) != "raw":   
-                mystic = await message.reply_text("Musik sedang diputar Daftar Putar...\n\nMengunduh Musik Berikutnya Dari Daftar Putar....")
+                mystic = await message.reply_text("يتم تشغيل الموسيقى في قائمة التشغيل...\n\nتنزيل الموسيقى التالية من قائمة التشغيل....")
                 url = (f"https://www.youtube.com/watch?v={afk}")
                 try:
                     with yt_dlp.YoutubeDL(ytdl_opts) as ytdl:
                         x = ytdl.extract_info(url, download=False)
                 except Exception as e:
-                    return await mystic.edit(f"Gagal mengunduh video ini.\n\n**Alasan**:{e}") 
+                    return await mystic.edit(f"فشل تحميل هذا الفيديو.\n\n**Alasan**:{e}") 
                 title = (x["title"])
                 videoid = afk
                 def my_hook(d):
@@ -296,11 +296,11 @@ async def stop_cmd(_, message):
                 photo=f"downloads/{_chat_}final.png",
                     reply_markup=InlineKeyboardMarkup(buttons),
                     caption=f"""
-<b>⏭️ Melewati lagu</b>
+<b>⏭️ تخطي الأغنية</b>
 
-<b>🏷️ Nama:</b> {title}
-<b>⏱️ Durasi:</b> {duration}
-<b>🎧 Atas permintaan</b> {username}
+<b>❤️‍🔥 الاسم:</b> {title}
+<b>❤️‍🔥 المدة:</b> {duration}
+<b>❤️‍🔥 طلب من</b> {username}
 """,
                 )
                 return
