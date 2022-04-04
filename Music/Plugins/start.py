@@ -63,7 +63,7 @@ pstart_markup = InlineKeyboardMarkup(
             InlineKeyboardButton("• ხy ", url=f"https://t.me/RR3R2"),
         ],
         [
-            InlineKeyboardButton("المطور", url=f"https://t.me/{GROUP_SUPPORT}"),
+            InlineKeyboardButton("• اެݪمطۅࢪ", url=f"https://t.me/{GROUP}"),
         ],
     ]
 )
