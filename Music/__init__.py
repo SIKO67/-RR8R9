@@ -1,4 +1,4 @@
-print("[INFO]: INITIALIZING")
+print("[INFO]: بأمر من المطور @rr8r9 يتم تشغيل البوت الان")
 import asyncio
 import importlib
 import time
