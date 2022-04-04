@@ -36,7 +36,7 @@ async def cbmenu(_, query: CallbackQuery):
             show_alert=True,
         )
     await query.edit_message_text(
-        f"⚙️ **Pengaturan dari** {query.message.chat.title}\n\nII : Jeda Streaming\n▷ : Lanjutkan Streaming\n🔇 : Bisukan Assistant\n🔊 : Bunyikan Assistant\n▢ : Hentikan Streaming",
+        f"⚙️ **إعدادات** {query.message.chat.title}\n\nII : جدا ستريمنج\n▷ :  استمرار الأغنية\n🔇 : كتم المساعد\n🔊 : الغاء كتم المساعد\n▢ : انهاء التشغيل",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -59,20 +59,20 @@ async def close(_, query: CallbackQuery):
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
         return await query.answer(
-            "💡 Hanya admin dengan izin mengelola obrolan suara yang dapat mengetuk tombol ini !",
+            "💡 يمكن للمسؤولين الذين لديهم إذن إدارة الدردشة الصوتية فقط النقر فوق هذا الزر !",
             show_alert=True,
         )
     await query.message.delete()
 
 
-@app.on_message(command(["vskip"]) & filters.group)
+@app.on_message(command(["تخط"]) & filters.group)
 @authorized_users_only
 async def skip(client, m: Message):
 
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton(text="ᴍᴇɴᴜ", callback_data="cbmenu"),
+                InlineKeyboardButton(text="تحكم", callback_data="cbmenu"),
             ]
         ]
     )
@@ -81,29 +81,29 @@ async def skip(client, m: Message):
     if len(m.command) < 2:
         op = await skip_current_song(chat_id)
         if op == 0:
-            await m.reply("❌ Tidak ada yang sedang diputar")
+            await m.reply("🧑‍💻 ماكو شي مشتغل؟ توكل منا")
         elif op == 1:
             await m.reply(
-                "✅ __Antrian__ **kosong.**\n\n**• Assistant meninggalkan obrolan suara**"
+                "✅ __قائمة الانتضار__ **فارغة.**\n\n**• غادر المساعد الدردشة الصوتية**"
             )
         elif op == 2:
             await m.reply(
-                "🗑️ **Membersihkan Antrian**\n\n**• Assistant meninggalkan obrolan suara**"
+                "🗑️ **مسح قائمة الانتظار**\n\n**• غادر المساعد الدردشة الصوتية**"
             )
         else:
             await m.reply(
                 f"""
-⏭️ **Memutar {op[2]} selanjutnya**
+⏭️ **تخطي {op[2]} التالي**
 
-🏷 **Nama:** [{op[0]}]({op[1]})
-🎧 **Atas permintaan:** {m.from_user.mention()}
+❤️‍🔥 **الاسم:** [{op[0]}]({op[1]})
+❤️‍🔥 **طلب من:** {m.from_user.mention()}
 """,
                 disable_web_page_preview=True,
                 reply_markup=keyboard,
             )
     else:
         skip = m.text.split(None, 1)[1]
-        OP = "🗑 **Lagu dihapus dari antrian:**"
+        OP = "🗑 **تمت إزالة الأغنية من قائمة الانتظار:**"
         if chat_id in QUEUE:
             items = [int(x) for x in skip.split(" ") if x.isdigit()]
             items.sort(reverse=True)
@@ -119,7 +119,7 @@ async def skip(client, m: Message):
             await m.reply(OP)
 
 
-@app.on_message(command(["vstop"]) & filters.group)
+@app.on_message(command(["انهاء"]) & filters.group)
 @authorized_users_only
 async def stop(client, m: Message):
     chat_id = m.chat.id
@@ -127,11 +127,11 @@ async def stop(client, m: Message):
         try:
             await call_py.leave_group_call(chat_id)
             clear_queue(chat_id)
-            await m.reply("✅ **Streaming telah berakhir.**")
+            await m.reply("✅ **تم عيني .**")
         except Exception as e:
             await m.reply(f"**Error:**\n\n`{e}`")
     else:
-        await m.reply("❌ **Tidak ada dalam streaming**")
+        await m.reply("❌ **ماكو شي مشتغل ، توكل منا**")
 
 
 @app.on_message(command(["vpause"]) & filters.group)
