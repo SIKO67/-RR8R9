@@ -58,7 +58,7 @@ initialize()
 UPSTREAM_BRANCH = UPSTREAM_BRANCH
 UPSTREAM_REPO = UPSTREAM_REPO
 
-print("[INFO]: INITIALIZING DATABASE")
+print("[INFO]: تهيئة قاعدة البيانات بواسطة المطور")
 MONGODB_CLI = MongoClient(MONGO_DB_URI)
 db = MONGODB_CLI.wbb
 SUDOERS = SUDO_USERS
@@ -78,7 +78,7 @@ async def load_sudoers():
                 {"sudo": "sudo"}, {"$set": {"sudoers": sudoers}}, upsert=True
             )
     SUDOERS = (SUDOERS + sudoers) if sudoers else SUDOERS
-    print("[INFO]: LOADED SUDO USERS")
+    print("[INFO]: تم تحميل قائمة المطورين")
     try:
         repo = Repo()
     except GitCommandError:
