@@ -21,11 +21,11 @@ ____ = "اوامر المغادرة والانضمام"
 __مساعدة__ = """
 **ملحوظة:**
 اوامر المطور فقط
-/انضم مع ايدي الكروب]
+/انضم مع ايدي المجموعة]
 - سينضم حساب المساعد للمجموعة.
-/ترك مع ايدي الكروب
+/ترك مع ايدي المجموعة
 - المساعد سيترك المجموعة المعينة.
-/اترك مع ايدي الكروب
+/اترك مع ايدي المجموعة
 - لمغادرة البوت من مجموعة معينة.
 """
 
@@ -95,7 +95,7 @@ async def activevc(_, message: Message):
         try:
             title = (await app.get_chat(x)).title
         except Exception:
-            title = "Private Group"
+            title = "المجموعة خاصة"
         if (await app.get_chat(x)).username:
             user = (await app.get_chat(x)).username
             text += (
@@ -117,14 +117,14 @@ async def activevc(_, message: Message):
 async def basffy(_, message):
     if len(message.command) != 2:
         await message.reply_text(
-            "**الاستخدام:**\n/انضم معرف الكروب او ايدي الكروب ، سينضم للدردشة"
+            "**الاستخدام:**\n/انضم معرف المجموعة او ايدي المجموعة ، سينضم للدردشة"
         )
         return
     chat = message.text.split(None, 2)[1]
     try:
         await userbot.join_chat(chat)
     except Exception as e:
-        await message.reply_text(f"Gagal\n**Kemungkinan alasannya bisa**:{e}")
+        await message.reply_text(f"فشل الانضمام\يمكن أن تكون الأسباب المحتملة**:{e}")
         return
     await message.reply_text("ينضم.")
 
@@ -150,7 +150,7 @@ async def baaaf(_, message):
 async def baujaf(_, message):
     if len(message.command) != 2:
         await message.reply_text(
-            "**الاستخدام:**\n/ترك مع ايدي الكروب"
+            "**الاستخدام:**\n/ترك مع ايدي المجموعة"
         )
         return
     chat = message.text.split(None, 2)[1]
