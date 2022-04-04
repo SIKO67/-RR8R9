@@ -175,7 +175,7 @@ async def music_onoff(_, message: Message):
             return
         DISABLED_GROUPS.append(message.chat.id)
         await lel.edit(
-            f"**✅ Music Telah Di Nonaktifkan Di {message.chat.title}**"
+            f"**✅ تم تعطيل الموسيقى في {message.chat.title}**"
         )
     else:
         await message.reply_text(
@@ -329,7 +329,7 @@ Saya perlu menjadi admin dengan beberapa izin:
             if (not path.isfile(file_name))
             else file_name,
         )
-        title = "Audio Yang Dipilih Dari Telegram"
+        title = "الصوت المحدد من Telegram"
         link = "https://t.me/xl444"
         thumb = "cache/Audio.png"
         videoid = "smex1"
