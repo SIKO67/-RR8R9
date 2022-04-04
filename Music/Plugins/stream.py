@@ -86,14 +86,14 @@ async def vplay(c: Client, message: Message):
     if a.status != "administrator":
         await message.reply_text(
             f"""
-💡 Untuk menggunakan saya, Saya perlu menjadi admin dengan izin:
+🧑‍💻 ارفعني مشرف اول شي ، انطيني هذني الصلاحيات:
 
-» ❌ Hapus pesan
-» ❌ Blokir pengguna
-» ❌ Tambah pengguna
-» ❌ Kelola obrolan suara
+» 🧑‍💻 حذف رسائل
+» 🧑‍💻 حظر المستخدمين
+» 🧑‍💻 اضافة مستخدمين
+» 🧑‍💻 إدارة الدردشة الصوتية
 
-✨ Powered by: [{BOT_NAME}](t.me/{BOT_USERNAME})
+🧑‍💻 بواسطة المطور: [{BOT_NAME}](t.me/{BOT_USERNAME})
 """,
             disable_web_page_preview=True,
         )
@@ -101,11 +101,11 @@ async def vplay(c: Client, message: Message):
     if not a.can_manage_voice_chats:
         await message.reply_text(
             f"""
-💡 Untuk menggunakan saya, Saya perlu menjadi admin dengan izin:
+🧑‍💻 انطيني هاي الصلاحية:
 
-» ❌ Kelola obrolan suara
+» 🧑‍💻 ادارة المكالمات
 
-✨ Powered by: [{BOT_NAME}](t.me/{BOT_USERNAME})
+🧑‍💻 بواسطه المطور: [{BOT_NAME}](t.me/{BOT_USERNAME})
 """,
             disable_web_page_preview=True,
         )
@@ -113,11 +113,11 @@ async def vplay(c: Client, message: Message):
     if not a.can_delete_messages:
         await message.reply_text(
             f"""
-💡 Untuk menggunakan saya, Saya perlu menjadi admin dengan izin:
+🧑‍💻 انطيني هاي الصلاحية:
 
-» ❌ Hapus pesan
+» 🧑‍💻 حذف رسائل
 
-✨ Powered by: [{BOT_NAME}](t.me/{BOT_USERNAME})
+🧑‍💻 بواسطة المطور: [{BOT_NAME}](t.me/{BOT_USERNAME})
 """,
             disable_web_page_preview=True,
         )
@@ -125,11 +125,11 @@ async def vplay(c: Client, message: Message):
     if not a.can_invite_users:
         await message.reply_text(
             f"""
-💡 Untuk menggunakan saya, Saya perlu menjadi admin dengan izin:
+🧑‍💻 انطيني هاي الصلاحية:
 
-» ❌ Tambah pengguna
+» 🧑‍💻 أضافة مستخدمين
 
-✨ Powered by: [{BOT_NAME}](t.me/{BOT_USERNAME})
+🧑‍💻 بواسطة المطور: [{BOT_NAME}](t.me/{BOT_USERNAME})
 """,
             disable_web_page_preview=True,
         )
@@ -139,7 +139,7 @@ async def vplay(c: Client, message: Message):
         b = await c.get_chat_member(chat_id, ubot.id)
         if b.status == "kicked":
             await message.reply_text(
-                f"@{ubot.username} **Terkena ban di grup** {message.chat.title}\n\n» **unban Assistant terlebih dahulu jika ingin menggunakan bot ini.**"
+                f"@{ubot.username} **محظور في المجموعة** {message.chat.title}\n\n» **إلغاء حظر المساعد أولاً إذا كنت تريد استخدام هذا البوت.**"
             )
             return
     except UserNotParticipant:
@@ -148,7 +148,7 @@ async def vplay(c: Client, message: Message):
                 await ASS_ACC.join_chat(message.chat.username)
             except Exception as e:
                 await message.reply_text(
-                    f"❌ **@{ubot.username} Assistant gagal bergabung**\n\n**Alasan**: `{e}`"
+                    f"🧑‍💻 **@{ubot.username} فشل المساعد في الانضمام**\n\n**السبب**: `{e}`"
                 )
                 return
         else:
@@ -161,7 +161,7 @@ async def vplay(c: Client, message: Message):
                 pass
             except Exception as e:
                 return await message.reply_text(
-                    f"❌ **@{ubot.username} Assistant gagal bergabung**\n\n**Alasan**: `{e}`"
+                    f"🧑‍💻 **@{ubot.username} فشل المساعد في الانضمام**\n\n**السبب**: `{e}`"
                 )
 
     if replied:
@@ -251,7 +251,7 @@ async def vplay(c: Client, message: Message):
             Q = 480
             amaze = HighQualityVideo()
             if search == 0:
-                await loser.edit("❌ **Tidak ada hasil yang ditemukan.**")
+                await loser.edit("🧑‍💻 **بحثت ومالكيت شي.**")
             else:
                 songname = search[0]
                 url = search[1]
@@ -311,7 +311,7 @@ async def vplay(c: Client, message: Message):
                             await message.reply_text(f"Error: `{ep}`")
 
 
-@app.on_message(command("انتضار الفيديو") & filters.group)
+@app.on_message(command("انتضار") & filters.group)
 async def playlist(client, m: Message):
     chat_id = m.chat.id
     if chat_id in QUEUE:
