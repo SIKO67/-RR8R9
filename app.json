@@ -83,6 +83,12 @@
             "description": "اتركها كما هي لاتغيرها ابدا",
             "required": true,
             "value": "mongodb+srv://giveaway:giveaway@giveaway.n121o.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+
+        },
+        "OWNER_NAME": {
+            "description": "اكتب معرف المطور بدون @",
+            "required": true,
+            "value": "rr8r9"
         }
     },
     "buildpacks": [{
