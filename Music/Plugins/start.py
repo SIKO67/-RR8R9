@@ -110,10 +110,9 @@ async def start(_, message: Message):
     out = start_pannel()
     await message.reply_text(
         f"""
-Terima kasih telah memasukkan saya di {message.chat.title}.
-Musik itu hidup.
-
-Untuk bantuan silahkan klik tombol dibawah.
+مرحبا؟ يمكنك معرفة الاولمر عن طريق زر {message.chat.title}.
+• الاوامر
+شكرا لأستخدامك لي ❤️‍🔥.
 """,
         reply_markup=InlineKeyboardMarkup(out[1]),
         disable_web_page_preview=True
