@@ -8,7 +8,6 @@ from Music import BOT_NAME, ASSNAME, app, client
 from Music.MusicUtilities.database.functions import clean_restart_stage
 from Music.MusicUtilities.database.queue import (get_active_chats, remove_active_chat)
 from Music.MusicUtilities.tgcallsrun import run
-from Music.MusicUtilities.helpers.decorators import nothingmuch as startapp
 from pytgcalls import idle
 from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
 import time
@@ -22,8 +21,8 @@ Client(
 ).start()
 
 
-print(f"[INFO]: بدء البوت يعمل بواسطة مطور سورس فريدوم{BOT_NAME}!")
-print(f"[INFO]: بدء المساعد يعمل بواسطة مطور سورس فريدوم{ASSNAME}!")
+print(f"[INFO]: بواسطة مطور سورس فريدوم البوت يعمل {BOT_NAME}!")
+print(f"[INFO]: بواسطة مطور سورس فريدوم المساعد يعمل {ASSNAME}!")
 
 
 
@@ -35,7 +34,7 @@ async def load_start():
             await app.edit_message_text(
                 restart_data["chat_id"],
                 restart_data["message_id"],
-                "**تم اعادة تشغيل البوت بنجاح.**",
+                "**🧑‍💻تم تحديث البوت بنجاح.**",
             )
         except Exception:
             pass
@@ -52,10 +51,12 @@ async def load_start():
         except Exception as e:
             print("Error came while clearing db")
             pass     
-    await startapp()
-    await app.send_message(LOG_GROUP_ID, "بواسطة المطور @rr8r9 البوت يعمل بسرعة هائلة")
-    await client.send_message(LOG_GROUP_ID, "بواسطة المطور @rr8r9 المساعد يعمل بشكل طبيعي")
-    print("[INFO]: STARTED")
+    await app.send_message(LOG_GROUP_ID, "🧑‍💻بواسطة المطور @rr8r9 البوت يعمل")
+    await client.send_message(LOG_GROUP_ID, "🧑‍💻بواسطة المطور @rr8r9 البوت يعمل")
+    #Kalau clone atau fork jangan di hapus ya tolol
+    await client.join_chat("xl444")
+    await client.join_chat("RR3R2")
+    print("[INFO]: بدء البوت")
     
    
 loop = asyncio.get_event_loop()
